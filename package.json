@@ -1,0 +1,12 @@
+{
+  "name": "caninecompanions",
+  "version": "1.0.0",
+  "description": "Pet adoption app",
+  "main": "server.js",
+  "repository": "https://github.com/Contrapuntist/caninecompanions.git",
+  "author": "Contrapuntist <contrapuntist@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
