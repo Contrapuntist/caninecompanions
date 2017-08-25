@@ -6,7 +6,8 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars"); 
+var methodOverride = require("method-override");
 
 // Sets up the Express App
 // =============================================================
@@ -16,12 +17,29 @@ var PORT = process.env.PORT || 8080;
 // Requiring our models for syncing
 var db = require("./models");
 
+// Static directory
+app.use(express.static("public")); 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Override with POST having ?_method=DELETE
+app.use(methodOverride("_method"));
+
+
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Static directory
-app.use(express.static("public")); 
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+// Routes
+// =============================================================
+require("./routes/api-routes.js")(app);
+
+// Here we introduce HTML routing to serve different HTML files
+// require("./routes/html-routes.js")(app);
 
 
 // *******************************************************
