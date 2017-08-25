@@ -10,23 +10,24 @@ module.exports = function(app) {
 
     // index
     app.get('/', function(req, res) {
-        
+        console.log('reached app get in html routes file'); 
         // USE FOR HTML ROUTING 
         // res.sendFile(path.join(__dirname, "../public/testing.html"));
 
         // RENDER INDEX HANDLEBARS FILE
-        router.get("/", function(req, res) {
+        // router.get("/", function(req, res) {
             
-            // MODEL CALL 
-            // cat.all(function(data) {
-            //   var hbsObject = {
-            //     cats: data
-            //   };
-            // console.log(hbsObject);
-            // });
+        //     MODEL CALL 
+        //     cat.all(function(data) {
+        //       var hbsObject = {
+        //         cats: data
+        //       };
+        //     console.log(hbsObject);
+        //     });
 
-            res.render("index");
-          });
+            
+        // });
+        res.render("index");
     });
 
     // pets
