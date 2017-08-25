@@ -1,0 +1,68 @@
+-------------------------------------
+Menu
+    - Logo
+    - Home (Index)
+    - Returning Users (ReturningUsers)
+    - Current Matches (QuestionnaireResults)
+    + Breeds if time permits
+        - All breeds listed using the Wolfram API
+        = (Flexible on info provided)
+        = Picture
+        = Breed Name
+        = Size
+        = Energy Level
+        = Shedding (Allergies)
+        = Kid Friendly
+        = Climate
+        = Lifespan
+    + Contact if time permits
+-------------------------------------
+Index
+    - Returning Users Section
+        - Input email address and name
+        - Both must match to proceed
+            + Authentication if time permits
+        - Sends to ReturningUsers
+
+    - QUESTIONNAIRE Section
+        = Name
+        = Email Address
+        = Location: zip code
+        = Gender: male, female
+        = Age: baby, young, adult, senior
+        = Size: small, medium, large
+        = Breed: "undecided" as first/default option
+            - Checkboxes for users to select multiple breeds
+            - I worry how "size" will play into this. I feel like it'll only work with undecided.
+        - Stored in db using Sequelize
+            + Authentication if time permits
+-------------------------------------
+ReturningUsers
+    - Previous matches of dog PROFILES shown
+    - Btn to find other dogs
+        - Brings user back to index QUESTIONNAIRE
+-------------------------------------
+QuestionnaireResults
+    - PetFinder API for dogs in area
+    - Shows 20 dog PROFILES that match search
+    - PROFILE
+        = Picture
+        = Name
+        = Age
+        = Breed
+        = Location/Address
+        = Bio
+        = Link to website
+-------------------------------------
+Footer
+    - Logo
+    - General Address
+    - Email
+    - Phone Number
+    - Social Media
+        - Facebook
+        - Twitter
+        - Instagram
+        - YouTube
+    - Copyright
+-------------------------------------
