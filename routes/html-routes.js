@@ -1,15 +1,22 @@
+// MODULE REQUIREMENTS FOR ROUTING HANDLEBARS
+var express = require('express');
+var router = express.Router();
+
+// MODULE REQUIREMENTS FOR ROUTING HTML FILES
 var path = require('path');
+
 
 module.exports = function(app) {
 
     // index
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"));
+        console.log('reached app get in html routes file'); 
+        res.sendFile(path.join(__dirname, "../public/testing.html"));
     });
 
     // pets
-    app.get('/dogs', function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/pets.html"));
+    app.get('/pets', function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/pets-rescue.html"));
+
     });
-    
 };
