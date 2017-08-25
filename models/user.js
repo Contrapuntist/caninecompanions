@@ -1,48 +1,68 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        user_id: {
+        userId: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true
         },
-        last_name: {
+        lastName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
         },
-        first_name: {
+        firstName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: { 
+                isEmail: true,
+            }
         },
         zip: {
             type: DataTypes.INTEGER,
             allowNull: false
+        }, 
+        dogSex: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        // Generic column names for responses for up to 5 questions
-        q1: {
-            type: DataTypes.STRING
+        dogAge: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        q2: {
-            type: DataTypes.STRING
+        dogSize: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        q3: {
-            type: DataTypes.STRING
+        dogHome: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        q4: {
-            type: DataTypes.STRING
+        dogHair: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
-        q5: {
-            type: DataTypes.STRING
+        dogEnergy: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     });
 
     User.associate = function(models) {
-        // Associating a user with pets
-        // There's no "onDelete" attribute because deleting a user should not delete pets
-        User.hasMany(models.Pet);
+        // Associating a user with a recommended breed (based on user responses to survey questions)
+        User.belongsTo(models.Breed, {
+            foreignKey: {
+                allowNull: false
+            }
+        });   
     };
 
     return User;

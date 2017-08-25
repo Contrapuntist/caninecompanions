@@ -10,18 +10,28 @@ module.exports = function(app) {
         // }
 
         // post is model
-        db.Post.findAll({
+        db.Users.findAll({
             where: query
             //, include: [db.breed]
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbUsers) {
+            res.json(dbUsers);
         });
     });
 
     app.get('/api/pets', function(req, res) {
-        db.Post.findAll({
-        }).then(function(dbPost) {
-            res.json(db.Post);
+        db.Users.findAll({
+        }).then(function(dbUsers) {
+            res.json(db.Users);
+        });
+    });
+
+    app.get('/api/pets/:lookupvar', function(req, res) {
+        db.Users.findOne({
+            where: {
+                // look-up variable      id: ex: req.params.id
+            }
+        }).then(function(dbUsers) {
+            res.json(dbUsers);
         });
     });
 

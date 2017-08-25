@@ -33,6 +33,6 @@ module.exports = function(app) {
     // pets
     app.get('/pets', function(req, res) {
         res.sendFile(path.join(__dirname, "../public/pets-rescue.html"));
+
     });
-    
 };
