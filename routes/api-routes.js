@@ -26,12 +26,14 @@ module.exports = function(app) {
     });
 
     app.get('/api/pets/:lookupvar', function(req, res) {
-        db.Users.findOne({
+        console.log(req.params.lookupvar);
+        db.breeds.findOne({
             where: {
                 // look-up variable      id: ex: req.params.id
+                breedId: req.params.lookupvar
             }
-        }).then(function(dbUsers) {
-            res.json(dbUsers);
+        }).then(function(dbbreed) {
+            res.json(dbbreed);
         });
     });
 
