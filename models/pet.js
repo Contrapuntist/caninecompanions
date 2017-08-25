@@ -1,6 +1,8 @@
+// A PET TABLE WILL BE NEEDED IF WE WANT TO SAVE PETS TO USER PROFILES
+
 module.exports = function(sequelize, DataTypes) {
     var Pet = sequelize.define("Pet", {
-        pet_id: {
+        petId: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true

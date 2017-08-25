@@ -1,6 +1,8 @@
+// A SHELTER TABLE WILL BE NEEDED IF THERE IS A LOGIN FOR SHELTERS TO ADD/UPDATE PETS
+
 module.exports = function(sequelize, DataTypes) {
     var Shelter = sequelize.define("Shelter", {
-        shelter_id: {
+        shelterId: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true
