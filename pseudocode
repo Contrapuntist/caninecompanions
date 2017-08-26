@@ -1,0 +1,94 @@
+-------------------------------------
+Menu
+    - Logo
+    - Home (Index)
+    - Returning Users (ReturningUsers)
+    - Current Matches (QuestionnaireResults)
+    + Breeds if time permits
+        - All breeds listed using the Wolfram API
+        = (Flexible on info provided)
+        = Picture
+        = Breed Name
+        = Size
+        = Energy Level
+        = Shedding (Allergies)
+        = Kid Friendly
+        = Climate
+        = Lifespan
+    + Contact if time permits
+-------------------------------------
+Index
+    - Returning Users Section
+        - Input email address and name
+        - Both must match to proceed
+            + Authentication if time permits
+        - Sends to ReturningUsers
+
+    - QUESTIONNAIRE Section
+        = Name
+        = Email Address
+        = Location: zip code
+        = Gender: male, female, doesn't matter
+        = Age: baby, young, adult, senior
+        (Breed determined by:)
+            = Size: small, medium, large
+            = Living Space
+            = Shedding
+            = Energy Level
+        - Stored in db using Sequelize
+            + Authentication if time permits
+-------------------------------------
+PetFinder API Call
+    = Location: zip code
+    = Gender: male, female, doesn't matter
+    = Age: baby, young, adult, senior
+    = Size
+    = Breed
+
+Wolfram API Call
+    = Breed
+-------------------------------------
+QuestionnaireResults
+    - PetFinder API for dogs in area
+    - Shows 20 dog PROFILES that match search
+    - PROFILE
+        = Picture
+        = Name
+        = Age
+        = Breed
+        = Breed Description from Wolfram API
+        = Bio
+        = Shelter Email
+        = Shelter Phone Number
+        = Shelter City
+-------------------------------------
+Sequelize db
+    - Breed Look-up Table
+        - Identifies Breeds
+    - User Table
+-------------------------------------
+Footer
+    - Logo
+    - General Address
+    - Email
+    - Phone Number
+    - Social Media
+        - Facebook
+        - Twitter
+        - Instagram
+        - YouTube
+    - Copyright
+-------------------------------------
+
+
+
+
+
+
+
+-------------------------------------
++ ReturningUsers
+    + Previous matches of dog PROFILES shown
+    + Btn to find other dogs
+        + Brings user back to index QUESTIONNAIRE
+-------------------------------------
