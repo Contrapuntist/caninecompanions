@@ -2,17 +2,18 @@ $(document).ready(function () {
     $("#getstarted").on("click", function (e) { 
         // e.preventdefault(); 
         console.log("button clicked"); 
-        // var frmLastName = $('').val().trim();
-        // var frmFirstName = $('').val().trim();
-        // var frmEmail = $('').val().trim();
-        // var frmZip = $('').val().trim();
-        // var frmDogAge = $('').val().trim(); 
+        // var frmLastName = $('#lastName-js').val().trim();
+        // var frmFirstName = $('#firstName-js').val().trim();
+        // var frmEmail = $('#email-js').val().trim();
+        // var frmPassword = $('#password-js').val().trim();
+        // var frmZip = $('#zip-js').val().trim();
+        // var frmDogAge = $('.dogAge-js').val().trim(); 
         
         // // data for breed matching
-        // var frmDogSize = $('').val().trim(); 
-        // var frmDogHome = $('').val().trim(); 
-        // var frmDogHair = $('').val().trim(); 
-        // var frmDogEnergy = $('').val().trim(); 
+        // var frmDogSize = $('.dogSize-js').val().trim(); 
+        // var frmDogHome = $('.dogHome-js').val().trim(); 
+        // var frmDogHair = $('.dogHair-js').val().trim(); 
+        // var frmDogEnergy = $('.dogEnergy-js').val().trim(); 
         
         // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
         
