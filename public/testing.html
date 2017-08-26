@@ -32,7 +32,7 @@
 </head>
 <body>
  <div class="container">
-    <h1>Something it working. Let's save some dogs. TESTING</h1> 
+    <h1>Something it working. Let's save some dogs. TESTING --</h1> 
     <div>
         <img src="img\adopt-dog.jpg" alt="" width="300px">
     </div>
@@ -116,15 +116,20 @@
   <script type="text/javascript">
     // This is our API key
 
+
+
     // Here we are building the URL we need to query the database
     var queryURL = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=boxer&size=M&sex=F&age=young&location=60657&output=full&format=json";
 
 
     // Here we run our AJAX call to the OpenWeatherMap API
     $.ajax({
-        url: queryURL,
-        method: "GET"
+        url: queryURL +'&callback=?',
+        method: "GET",
+        dataType: 'json',
+
       })
+
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) {
 
