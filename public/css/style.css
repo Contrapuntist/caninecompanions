@@ -35,12 +35,6 @@ body {
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
 }
 
-.jumbotron {
-  background-color: white;
-  margin-top: 50px;
-  margin-bottom: 100px;
-}
-
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
@@ -61,6 +55,7 @@ body {
 
 label {
   color: black;
+  
 }
 
 /* Padding for spacing */
@@ -104,6 +99,11 @@ label {
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+.question {
+  color: black;
+  float: left;
 }
 
 @media (min-width: 48em) {
