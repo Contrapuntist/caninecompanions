@@ -18,17 +18,34 @@ $(document).ready(function () {
         
 
         // validateForm()
-        var testbreedmatch = "smallhomelighthighenergy";
+        var testbreedmatch = "c";
         findBreed(testbreedmatch);
     });
 
-    function findBreed (breedselect) { 
+    function findBreed (breedselect, formdetailsObj) { 
         console.log("in find breed"); 
         $.ajax({
             method: "GET",
             url: "api/pets/" + breedselect
         }).done(function (res) {
             console.log(res); 
+            // var dogbreedvalue = json
+            // makeQueryString(formdetailsObj, dogbreedvalue)
+        });
+    }
+
+    function makeQueryString (formObj, dogbreed ){ 
+        var queryStr = "https://api.petfinder.com" + dogbreed + formdetailsObj.dogAge + etc.
+        // petfinder ajax 
+        petfindercall()
+    }
+    
+    function petfindercall (querystring) {
+        $.ajax({
+            method: 'get',
+            url: '/petfinder'
+        }).then(function(res) { 
+
         });
     }
 
