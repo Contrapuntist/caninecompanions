@@ -1,3 +1,5 @@
+var request = require("request");
+
 /****************************************************
 CONSTRUCTING THE WORLFRAM ALPHA API CALL
 Note: added "%20dog" at front of wolframBaseUrlEnd
@@ -18,6 +20,17 @@ var wolframBreed = function() {
 
 var wolframApiUrl = wolframBaseUrlStart + wolframBreed() + wolframBaseUrlEnd;
 console.log(wolframApiUrl);
+
+request(wolframApiUrl, function(error, response, body) {
+    
+    // If the request was successful...
+    if (!error && response.statusCode === 200) {
+    
+        // Console.log the breed description.
+        console.log(JSON.parse(body).queryresult.pods[4].subpods[0].plaintext);
+    }
+});
+
 
 /*
 ***************************************************
