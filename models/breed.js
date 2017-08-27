@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
         Breed.hasMany(models.User);
     };
 
+
     // Inserting rows into breeds table 
     // Run this code only if creating the table for the database for the first time
     // Breed.create({ breedId: "smallhomelightcalm", breedName: "Chihuahua" });
@@ -45,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
     // Breed.create({ breedId: "largeapartmentlighthighenergy", breedName: "Border Collie" });
     // Breed.create({ breedId: "largeapartmentanyhighenergy", breedName: "Greyhound" });
 
-    // Attempting to replace the code above with the code below, but it's not working yet (think it is an asynch problem)
+    // //Attempting to replace the code above with the code below, but it's not working yet (think it is an asynch problem)
     // Breed.findOrCreate({where: {breedId: "smallhomelightcalm"}, defaults: {breedName: "Chihuahua" }});
     // Breed.findOrCreate({where: {breedId: "smallhomeanycalm"}, defaults: {breedName: "Pug" }});
     // Breed.findOrCreate({where: {breedId: "smallhomelighthighenergy"}, defaults: {breedName: "Beagle" }});
