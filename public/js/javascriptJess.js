@@ -39,7 +39,7 @@ Note: each chain should be attached to the "cream
 filling" name used in the function (e.g., data, response, result)
 ***************************************************
 
-BREED DESCRIPTION (in pod with "title": "Description")
+** BREED DESCRIPTION (in pod with "title": "Description")
 .queryresult.pods[4].subpods[0].plaintext
 
 TEMPERAMENT (in pod with "title": "Temperament")
@@ -48,10 +48,12 @@ TEMPERAMENT (in pod with "title": "Temperament")
 DETAILED LIST OF CHARACTERISTIC TRAITS (in pod with "title": "Properties")
 .queryresult.pods[3].subpods[0].plaintext
 
-BREED HISTORY (in pod with "title": "History")
+** BREED HISTORY (in pod with "title": "History")
 .queryresult.pods[6].subpods[0].plaintext
 
 ALTERNATE BREED NAMES (in the pod with "title": "Alternate names" )
-.queryresult.pods[1].subpods[0].plaintext
+.queryresult.pods[1].subpods[0].plaintext 
+
+POD 0 : Breed 
 
 */

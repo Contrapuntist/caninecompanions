@@ -5,30 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.2.4/balloon.min.css"> 
+
         <style type="text/css">
            .container { 
               width: 2000px;
             }
+
              .row{ 
             padding-top: 100px;
             }
+
             body { 
               background-color: #333333;
             }
+
             h1 { 
               color: #FFC107;
              }
+
             .breedInfo{ 
               padding-right: 20px;
               padding-left: 20px;
+
               }
             .dogData {
               padding-right: 15px;
               padding-left: 15px;
+
             }
+
          </style>   
+
+
 </head>
 <body>
  <div class="container">
@@ -37,6 +49,9 @@
         <img src="img\adopt-dog.jpg" alt="" width="300px">
     </div>
     <button id="submit" type="submit">Submit</button>
+
+
+
 <div class="row">
  <div class="col-sm-12 col-md-12 col-xs-12">
 <div class="card" style="">
@@ -59,6 +74,8 @@
         </div>
         </div>
 </div>
+
+
 <div class="row">
  <div class="col-sm-4 col-md-4 col-xs-12">
 <div class="card" style="width: auto;">
@@ -84,6 +101,7 @@
           </center>
         </div>
         </div>
+
          <div class="col-sm-4 col-md-4 col-xs-12">
         <div class="card" style="width: auto;">
           <img class="card-img-top" id="images1" class="images1" src="" alt="Card image cap">
@@ -108,6 +126,8 @@
           </center>
         </div>
         </div>
+
+
          <div class="col-sm-4 col-md-4 col-xs-12">
         <div class="card" style="width: auto;">
           <img class="card-img-top" id="images2" class="images1" src="" alt="Card image cap">
@@ -132,26 +152,37 @@
           </center>
         </div>
         </div>
+
+
           <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
           <script type="text/javascript">
+
+
             // This is our API key
             //var shelterURL = "http://api.petfinder.com/shelter.get?key=e5b1a397d213021b27e64c70bbd8ee34&id=IL245&format=json";
+
             // Here we are building the URL we need to query the database
         var queryURL = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Pit+Bull&size=M&sex=F&age=adult&location=60657&output=full&format=json";
+
         // Here we run our AJAX call to the
         $.ajax({
         url: queryURL +'&callback=?',
         method: "GET",
         dataType: 'json',
+
 })
+
       // We store all of the retrieved data inside of an object called "response"
       .done(function(response) {
+
         // Log the queryURL
         console.log(queryURL);
         console.log(response);
+
         document.getElementById("images").src = response.petfinder.pets.pet[0].media.photos.photo[3].$t;
         document.getElementById("images1").src = response.petfinder.pets.pet[1].media.photos.photo[3].$t;
         document.getElementById("images2").src = response.petfinder.pets.pet[2].media.photos.photo[3].$t;
+
         // Transfer content to HTML
      
         $(".name").html(response.petfinder.pets.pet[0].name.$t );
@@ -160,40 +191,58 @@
         $(".contact").html("Contact: " + response.petfinder.pets.pet[0].contact.email.$t );
         $(".sex").html("Sex: " + response.petfinder.pets.pet[0].sex.$t);
         $(".size").html("Size: " + response.petfinder.pets.pet[0].size.$t );
+
         var details = document.querySelector('.description');
         details.setAttribute('data-balloon', response.petfinder.pets.pet[0].description.$t);
+
         var shelterID = response.petfinder.pets.pet[0].shelterId.$t; 
         console.log(shelterID);
         var shelterURL = "http://api.petfinder.com/shelter.get?key=e5b1a397d213021b27e64c70bbd8ee34&id=" + shelterID + "&format=json";  
         console.log(shelterURL);
+
+
+
         $(".name1").html(response.petfinder.pets.pet[1].name.$t );
         $(".age1").html("Age: " + response.petfinder.pets.pet[1].age.$t);
         $(".city1").html("City: " + response.petfinder.pets.pet[1].contact.city.$t);
         $(".contact1").html("Contact: " + response.petfinder.pets.pet[1].contact.email.$t );
         $(".sex1").html("Sex: " + response.petfinder.pets.pet[1].sex.$t);
         $(".size1").html("Size: " + response.petfinder.pets.pet[1].size.$t );
+
         var details = document.querySelector('.description1');
         details.setAttribute('data-balloon', response.petfinder.pets.pet[1].description.$t);
+
         var shelterID = response.petfinder.pets.pet[1].shelterId.$t; 
         console.log(shelterID);
         var shelterURL = "http://api.petfinder.com/shelter.get?key=e5b1a397d213021b27e64c70bbd8ee34&id=" + shelterID + "&format=json";  
         console.log(shelterURL);
+
+
+
         $(".name2").html(response.petfinder.pets.pet[2].name.$t );
         $(".age2").html("Age: " + response.petfinder.pets.pet[2].age.$t);
         $(".city2").html("City: " + response.petfinder.pets.pet[2].contact.city.$t);
         $(".contact2").html("Contact: " + response.petfinder.pets.pet[2].contact.email.$t );
         $(".sex2").html("Sex: " + response.petfinder.pets.pet[2].sex.$t);
         $(".size2").html("Size: " + response.petfinder.pets.pet[2].size.$t );
+
         var details = document.querySelector('.description2');
         details.setAttribute('data-balloon', response.petfinder.pets.pet[2].description.$t);
+
         var shelterID = response.petfinder.pets.pet[2].shelterId.$t; 
         console.log(shelterID);
         var shelterURL = "http://api.petfinder.com/shelter.get?key=e5b1a397d213021b27e64c70bbd8ee34&id=" + shelterID + "&format=json";  
         console.log(shelterURL);
+
       });
+
+
+
 //This is the call for the wolfram API... 
+
         var wolframBaseUrlStart = 'http://api.wolframalpha.com/v2/query?input=';
         var wolframBaseUrlEnd = '%20dog&appid=2TT3R3-JA5HLQH996&output=json';
+
         //Replace spaces in the breed name so that it can be passed into the query string 
         var wolframBreed = function() {
             //The string is hard-coded below; it should be replaced with breedName being returned from the mySQL database
@@ -201,41 +250,56 @@
             var replaced = string.split(' ').join('%20');
             return replaced;
 }
+
         var wolframApiUrl = wolframBaseUrlStart + wolframBreed() + wolframBaseUrlEnd;
         console.log(wolframApiUrl);
+
                 $.ajax({
                 url: wolframApiUrl + '&callback=?',
                 method: "GET",
                 dataType: 'json',
+
 })
+
         // We store all of the retrieved data inside of an object called "response"
         .done(function(response) {
+
                   $(".dogInfo").html("<b>About: </b>" + response.queryresult.pods[4].subpods[0].plaintext + "<br>");
                   console.log(response); 
                   $(".dogName").html(response.queryresult.pods[0].subpods[0].plaintext  );
                   $(".dogHistory").html("<b> History: </b>" + response.queryresult.pods[6].subpods[0].plaintext );
+
  });
+
 /*
 ***************************************************
 TRAVERSING THE DOG BREED JSON OBJECT
 Note: each chain should be attached to the "cream
 filling" name used in the function (e.g., data, response, result)
 ***************************************************
+
 BREED DESCRIPTION (in pod with "title": "Description")
 .queryresult.pods[4].subpods[0].plaintext
+
 TEMPERAMENT (in pod with "title": "Temperament")
 .queryresult.pods[5].subpods[0].plaintext
+
 DETAILED LIST OF CHARACTERISTIC TRAITS (in pod with "title": "Properties")
 .queryresult.pods[3].subpods[0].plaintext
+
 BREED HISTORY (in pod with "title": "History")
 .queryresult.pods[6].subpods[0].plaintext
+
 ALTERNATE BREED NAMES (in the pod with "title": "Alternate names" )
 .queryresult.pods[1].subpods[0].plaintext
+
 */
+
   </script>
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="js/mactests.js"></script>
+
 </body>
 </html>
