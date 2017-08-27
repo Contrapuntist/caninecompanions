@@ -57,10 +57,11 @@
             <div class="jumbotron">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputFirstName" class="col-form-label">First Name</label>
+                        <label for="inputFirstName" class="col-form-label" id="firstName-js">First Name</label>
                         <input type="text" class="form-control" placeholder="Jane">
                     </div>
                     <div class="form-group col-md-6">
+<<<<<<< HEAD
                         <label for="inputLastName" class="col-form-label">Last Name</label>
                         <input type="text" class="form-control" placeholder="Smith">
                     </div>
@@ -77,116 +78,124 @@
                     <div class="form-group col-md-4">
                         <label for="inputZip" class="col-form-label">Zip</label>
                         <input type="text" class="form-control" id="inputZip">
+=======
+                        <label for="inputLastName" class="col-form-label" id ="lastName-js">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Smith">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail4" class="col-form-label" id="email-js">Email</label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="janesmith@gmail.com">
+                    </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4" class="col-form-label" id="password-js">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputZip" class="col-form-label" id="zip-js">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                    </div>
+>>>>>>> 925adda51b25f99a88193614db10cdc6ea94e41b
                 </div>
             </div>
-            <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>Do you want a specific gender?</h5>
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                        <div class="question">
+                            <h5>Do you want a specific gender for your dog?</h5>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogSex-js">
-                <label class="col-md-4"><h6><input type="radio" value="female" name="optradio"> Female</h6></label>
-                <label class="col-md-3"><h6><input type="radio" value="male" name="optradio"> Male</h6></label>
-                <label class="col-md-3"><h6><input type="radio" value="any" name="optradio"> Any</h6></label>
-            </div>
-            </div>
+                    <div class="form-row" class="dogSex-js">
+                        <label class="col-md-4"><h6><input type="radio" value="female" name="optradio"> Female</h6></label>
+                        <label class="col-md-3"><h6><input type="radio" value="male" name="optradio"> Male</h6></label>
+                        <label class="col-md-3"><h6><input type="radio" value="any" name="optradio"> Any</h6></label>
+                    </div>
     
-            <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>What age dog would you like?</h5>
-                </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogAge-js">
-                <label class="col-md-2"><h6><input type="radio" value="puppy" name="optradio"> Puppy</h6></label>
-                <label class="col-md-2"><h6><input type="radio" value="young" name="optradio"> Young</h6></label>
-                <label class="col-md-2"><h6><input type="radio" value="adult" name="optradio"> Adult</h6></label>
-                <label class="col-md-2"><h6><input type="radio" value="senior" name="optradio"> Senior</h6></label>
-                <label class="col-md-1"><h6><input type="radio" value="any" name="optradio"> Any</h6></label>
-            </div>
-            </div>
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                        <div class="question">
+                            <h5>What age dog would you like?</h5>
+                        </div>
+                        </div>
+                    </div>
 
-            <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>What size dog would you like?</h5>
-                </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogSize-js">
-                <label class="col-md-3"><h6><input type="radio" value="small" name="optradio"> Small</h6></label>
-                <label class="col-md-3"><h6><input type="radio" value="medium" name="optradio"> Medium</h6></label>
-                <label class="col-md-3"><h6><input type="radio" value="large" name="optradio"> Large</h6></label>
-            </div>
-            </div>
-            
+                    <div class="form-row" class="dogAge-js">
+                        <label class="col-md-2"><h6><input type="radio" value="puppy" name="optradio"> Puppy</h6></label>
+                        <label class="col-md-2"><h6><input type="radio" value="young" name="optradio"> Young</h6></label>
+                        <label class="col-md-2"><h6><input type="radio" value="adult" name="optradio"> Adult</h6></label>
+                        <label class="col-md-2"><h6><input type="radio" value="senior" name="optradio"> Senior</h6></label>
+                        <label class="col-md-1"><h6><input type="radio" value="any" name="optradio"> Any</h6></label>
+                    </div>
 
-    <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>Will your dog be in a house with a yard or an apartment/condo?</h5>
-                </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogHome-js">
-                <label class="col-md-4"><h6><input type="radio" value="apartment" name="optradio"> House</h6></label>
-                <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Apartment/Condo</h6></label>
-            </div>
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                            <div class="question">
+                                <h5>What size dog would you like?</h5>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-            
+                    <div class="form-row" class="dogSize-js">
+                        <label class="col-md-3"><h6><input type="radio" value="small" name="optradio"> Small</h6></label>
+                        <label class="col-md-3"><h6><input type="radio" value="medium" name="optradio"> Medium</h6></label>
+                        <label class="col-md-3"><h6><input type="radio" value="large" name="optradio"> Large</h6></label>
+                    </div>     
 
-    <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>Are you looking for a dog that is a light shedder or would you love any dog regardless?</h5>
-                </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogHair-js">
-                <label class="col-md-6"><h6><input type="radio" value="apartment" name="optradio"> Light</h6></label>
-                <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Any</h6></label>
-            </div>
-            </div>
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                            <div class="question">
+                                <h5>Will your dog be in a house with a yard or an apartment/condo?</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" class="dogHome-js">
+                        <label class="col-md-4"><h6><input type="radio" value="apartment" name="optradio"> House</h6></label>
+                        <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Apartment/Condo</h6></label>
+                    </div>     
 
-    <div class="form-row">
-                <div class="col-form-legend col-md-12">
-                <div class="question">
-                <h5>Do you want an energetic dog to play fetch with or would you like a calm dog to snuggle with on the sofa?</h5>
-                </div>
-                </div>
-                </div>
-            <div class="form-row">
-            <div class="dogEnergy-js">
-                <label class="col-md-5"><h6><input type="radio" value="apartment" name="optradio"> Energetic</h6></label>
-                <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Calm</h6></label>
-            </div>
-            </div>
-            
-  
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                            <div class="question">
+                                <h5>Are you looking for a dog that is a light shedder or would you love any dog regardless?</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" class="dogHair-js">
+                        <label class="col-md-6"><h6><input type="radio" value="apartment" name="optradio"> Light</h6></label>
+                        <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Any</h6></label>
+                    </div>
 
-  <button type="submit" id="submitbtn" class="btn btn-lg btn-warning">Submit</button>
-  </div>
-    
-        </div>
-            <div class="mastfoot">
+                    <div class="form-row">
+                        <div class="col-form-legend col-md-12">
+                            <div class="question">
+                                <h5>Do you want an energetic dog to play fetch with or would you like a calm dog to snuggle with on the sofa?</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row" class="dogEnergy-js">
+                        <label class="col-md-5"><h6><input type="radio" value="apartment" name="optradio"> Energetic</h6></label>
+                        <label class="col-md-4"><h6><input type="radio" value="house" name="optradio"> Calm</h6></label>
+                    </div>    
+
+            <button type="submit" id="submitbtn" class="btn btn-lg btn-warning">Submit</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+            <!-- <div class="mastfoot">
                <div class="inner">
-                   <!-- <p class="footer">Pet Rescue 2017</p>  -->
+                    <nav class="nav nav-footer">
+                        <a class="nav-link" img ="../public/img/Twitter_Social_Icon_Circle">Twitter</a>
+                        <a class="nav-link" href="#">Facebook</a>
+                        <a class="nav-link" href="#">Instagram</a>
+               add Finding Fido copyright 2017 -->
+                    <!-- </nav>
                </div>
             </div>
-        </div>
-    </div>
-</div>
                                 
-    <!-- Optional JavaScript -->
+    Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 

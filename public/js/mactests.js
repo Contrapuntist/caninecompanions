@@ -26,6 +26,7 @@ $(document).ready(function () {
         // var frmDogEnergy = $('.dogEnergy-js').val().trim(); 
         // console.log(frmDogEnergy);
 
+
         // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
         
         var userInput = {
