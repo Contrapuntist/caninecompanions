@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require("../models");
+
 // MODULE REQUIREMENTS FOR ROUTING HTML FILES
 var path = require('path');
     
@@ -9,8 +10,6 @@ var path = require('path');
 router.get('/', function(req, res) {
     console.log('reached app get in html routes file'); 
     res.render("index");
-    // USE FOR HTML ROUTING 
-    // res.sendFile(path.join(__dirname, "../public/testing.html"));
 
     // RENDER INDEX HANDLEBARS FILE
     // router.get("/", function(req, res) {
@@ -48,10 +47,7 @@ router.get('/api/pets/:lookupvar', function(req, res) {
     });
 }); 
 
-
-
-
-    //     // pets
+    // pets
     // app.get('/pets', function(req, res) {
     //     res.sendFile(path.join(__dirname, "../public/pets-rescue.html"));
 
