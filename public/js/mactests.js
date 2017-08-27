@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    $.post()
+    
+    
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
         console.log("button clicked"); 
@@ -28,7 +31,22 @@ $(document).ready(function () {
 
 
         // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
+        // var formInput = {
+        //     firstName: frmFirstName, 
+        //     lastName: frmLastName,
+        //     email: frmEmail,
+        //     password: frmPassword,
+        //     zip: frmZip, 
+        //     dogGender: frmDogGender,
+        //     dogAge: frmDogAge,
+        //     dogSize: frmDogSize, 
+        //     dogHome: frmDogHome,
+        //     dogShed: frmDogShed,
+        //     dogEnergy: frmDogEnergy,
+        // }
         
+        console.log("form input: " + formInput); 
+
         var userInput = {
             firstName: "Jane", // frmFirstName, 
             lastName: "Doe", // frmLastName,
@@ -36,7 +54,7 @@ $(document).ready(function () {
             password: '1234567', // frmPassword,
             zip: "60601", // frmZip 
             dogGender: "M", // frmDogGender
-            dogAge: "puppy", // frmDogAge
+            dogAge: "baby", // frmDogAge
             dogSize: "S", // frmDogSize 
             dogHome: "house", // frmDogHome
             dogShed: "light", // frmDogShed
@@ -77,14 +95,14 @@ $(document).ready(function () {
             return queryStr; 
         }
     
-    // function petfindercall (querystring) {
-    //     $.ajax({
-    //         method: 'get',
-    //         url: '/petfinder'
-    //     }).then(function(res) { 
-
-    //     });
-    // }
+    function petfindercall (querystring) {
+        $.ajax({
+            method: 'get',
+            url: '/petfinderapi'
+        }).done(function(res) { 
+            console.log(res); 
+        });
+    }
 
     // function validateForm() {
     //     var x = name;
