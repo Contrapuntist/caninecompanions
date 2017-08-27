@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Computer7blue!",
     "database": "pets_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

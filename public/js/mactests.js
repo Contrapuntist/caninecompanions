@@ -1,4 +1,32 @@
 $(document).ready(function () {
+    Breed.sync().then(() => {
+        Breed.findOrCreate({where: {breedId: "smallhomelightcalm"}, defaults: {breedName: "Chihuahua" }});
+        Breed.findOrCreate({where: {breedId: "smallhomeanycalm"}, defaults: {breedName: "Pug" }});
+        Breed.findOrCreate({where: {breedId: "smallhomelighthighenergy"}, defaults: {breedName: "Beagle" }});
+        Breed.findOrCreate({where: {breedId: "smallhomeanyhighenergy"}, defaults: {breedName: "Jack Russell Terrier" }});
+        Breed.findOrCreate({where: {breedId: "smallapartmentlightcalm"}, defaults: {breedName: "Shih Tzu" }});
+        Breed.findOrCreate({where: {breedId: "smallapartmentanycalm"}, defaults: {breedName: "Dachshund" }});
+        Breed.findOrCreate({where: {breedId: "smallapartmentlighthighenergy"}, defaults: {breedName: "Poodle" }});
+        Breed.findOrCreate({where: {breedId: "smallapartmentanyhighenergy"}, defaults: {breedName: "Corgi" }});
+        Breed.findOrCreate({where: {breedId: "mediumhomelightcalm"}, defaults: {breedName: "Chow Chow" }});
+        Breed.findOrCreate({where: {breedId: "mediumhomeanycalm"}, defaults: {breedName: "Hound" }});
+        Breed.findOrCreate({where: {breedId: "mediumhomelighthighenergy"}, defaults: {breedName: "Pit Bull" }});
+        Breed.findOrCreate({where: {breedId: "mediumhomeanyhighenergy"}, defaults: {breedName: "Labrador Retriever" }});
+        Breed.findOrCreate({where: {breedId: "mediumapartmentlightcalm"}, defaults: {breedName: "Bulldog" }});
+        Breed.findOrCreate({where: {breedId: "mediumapartmentanycalm"}, defaults: {breedName: "Shar Pei" }});
+        Breed.findOrCreate({where: {breedId: "mediumapartmentlighthighenergy"}, defaults: {breedName: "Border Collie" }});
+        Breed.findOrCreate({where: {breedId: "mediumapartmentanyhighenergy"}, defaults: {breedName: "Boxer" }});
+        Breed.findOrCreate({where: {breedId: "largehomelightcalm"}, defaults: {breedName: "Mastiff" }});
+        Breed.findOrCreate({where: {breedId: "largehomeanycalm"}, defaults: {breedName: "Great Dane" }});
+        Breed.findOrCreate({where: {breedId: "largehomelighthighenergy"}, defaults: {breedName: "Pit Bull" }});
+        Breed.findOrCreate({where: {breedId: "largehomeanyhighenergy"}, defaults: {breedName: "German Shepherd Dog" }});
+        Breed.findOrCreate({where: {breedId: "largeapartmentlightcalm"}, defaults: {breedName: "American Bulldog" }});
+        Breed.findOrCreate({where: {breedId: "largeapartmentanycalm"}, defaults: {breedName: "Shar Pei" }});
+        Breed.findOrCreate({where: {breedId: "largeapartmentlighthighenergy"}, defaults: {breedName: "Border Collie" }});
+        Breed.findOrCreate({where: {breedId: "largeapartmentanyhighenergy"}, defaults: {breedName: "Greyhound" }});
+      });
+
+
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
         console.log("button clicked"); 
