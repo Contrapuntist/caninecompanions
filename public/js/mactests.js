@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    $.post()
     
     
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
+        
         console.log("button clicked"); 
 
         // var frmLastName = $('#lastName-js').val().trim();
@@ -32,8 +32,8 @@ $(document).ready(function () {
 
         // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
         // var formInput = {
-        //     firstName: frmFirstName, 
         //     lastName: frmLastName,
+        //     firstName: frmFirstName, 
         //     email: frmEmail,
         //     password: frmPassword,
         //     zip: frmZip, 
@@ -48,30 +48,50 @@ $(document).ready(function () {
         // console.log("form input: " + formInput); 
 
         var userInput = {
-            firstName: "Jane", // frmFirstName, 
             lastName: "Doe", // frmLastName,
+            firstName: "Jane", // frmFirstName, 
             email: "jdoe1234@gmail.com", // frmEmail,
             password: '1234567', // frmPassword,
             zip: "60601", // frmZip 
-            dogGender: "male", // frmDogGender
+            dogSex: "male", // frmDogGender
             dogAge: "baby", // frmDogAge
             dogSize: "small", // frmDogSize 
             dogHome: "house", // frmDogHome
-            dogShed: "light", // frmDogShed
+            dogHair: "light", // frmDogShed
             dogEnergy: "calm" // frmDogEnergy
         }
 
         // validateForm()
+        // var testbreedmatch = userInput.dogSize + userInput.dogHome + userInput.dogHair + userInput.dogEnergy;    // "smallhomelighthighenergy";
+        // userInput.BreedBreedID = testbreedmatch;
+        
         var testbreedmatch = "smallhomelighthighenergy";
-        $.when( )
-        findBreed(testbreedmatch, userInput);
-   
 
+        // createBreedMatchVal(userInput, function(val) { 
+        //     findBreed(val, userInput); 
+        // });
+
+        findBreed(testbreedmatch, userInput); 
+
+        function createBreedMatchVal (obj, cb) { 
+            console.log(obj)
+            var testbreedmatch = obj.dogSize + obj.dogHome + obj.dogHair + obj.dogEnergy;        
+            return cb(testbreedmatch);
+        } 
+        // userCreate(userInput);
+
+        function userCreate (userObj) { 
+            $.post("/api/newuser", userObj, function (data) {
+                console.log("user added: " + data);
+            });
+        }
 
         function findBreed (breedselect, inputObj) { 
             console.log("in find breed");
             console.log(inputObj); 
+            console.log(breedselect);
             var getBreedUrl = "api/pets/" + breedselect;
+            console.log('url: ' + getBreedUrl);
             $.ajax({
                 url: getBreedUrl,
                 method: "GET"
@@ -95,7 +115,7 @@ $(document).ready(function () {
                 console.log(query2);
                 console.log('===================');
                 petfindercall(a);
-                
+                // wolframcall(b);
             });
 
         }
@@ -107,29 +127,37 @@ $(document).ready(function () {
                 dogbreed = dogbreed.split(' ').join('+');
             }
 
-            if (formObj.dogGender === "male") {
-                formObj.dogGender = "M";
-            } else if ( formObj.dogGender === "female") {  
-                formObj.dogGender === "F"; 
-            } else {
-                delete formObj.dogGender; 
-            } 
-
+            var adjustDogSex = function () {
+                var sex = ''
+                if (formObj.dogGender === "male") {
+                    sex = "&sex=M"; 
+                } else if ( formObj.dogGender === "female") {  
+                    sex = "&sex=F"; 
+                    return sex;
+                } else {
+                    return sex;
+                } 
+            }
             var adjustDogSize = function () {
+                var size = ''
+
                 if (formObj.dogSize === "small") { 
-                    formObj.dogSize = "S"
+                    size = "&size=S";
+                    return size;
                 } else if (formObj.dogSize === "medium") { 
-                    formObj.dogSize = "M"
+                    size = "&size=M";
+                    return size;
                 } else { 
-                    formObj.dogSize = "L"
+                    size = "&size=L";
+                    return size;
                 }
             } 
             // example query string; http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Chihuahua&size=S&sex=&age=young&location=60657&output=full&format=json
             var queryStrPetfinder = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=" 
             + dogbreed 
-            + "&sex=" + formObj.dogGender
+            + adjustDogSex() 
             + "&age=" + formObj.dogAge
-            + "&size=" + formObj.dogSize 
+            + adjustDogSize()
             + "&location=" + formObj.zip 
             + "&output=full&format=json";   
 
@@ -158,47 +186,32 @@ $(document).ready(function () {
         }    
 
         function petfindercall (querystring) {
+            console.log('in petfinder api call'); 
+            var queryStr = "/petfinderapi/" + querystring;
+            console.log('petfinder API string URL: ' + queryStr );
+            $.ajax({
+                method: 'get',  
+                url: queryStr
+            }).done(function(res) { 
+                console.log(res); 
+            });
+        }
+        
+        function wolframcall (querystring) { 
             $.ajax({
                 method: 'get',
-                url: '/petfinderapi',
+                url: '/wolframapi',
                 data: querystring
             }).done(function(res) { 
                 console.log(res); 
             });
         }
-    
-
+        
     // function multiAPIcall (petfinderquery, wolframquery) { 
     //     $.when( 
     //         $.ajax({ method: 'get', url: '/petfinderapi' }), 
     //         $.ajax({ method: 'get', url: '/wolframapi' }))
-    // } 
+    // }     
 
-    // function validateForm() {
-    //     var x = name;
-    //     var y = pic;
-
-    //     if (x == "" || y == "" || score < 10 ) {
-    //         alert("All fields in the form must by completed.");
-    //         return false;
-    //     } else {
-    //         return postNewFriend(name, pic, score);
-    //     }
-    // }
-    
-    // function postNewFriend(name, pic, score) {
-    //     var newFriend = {
-    //         "name": name,
-    //         "photo": pic,
-    //         "scores": score 
-    //     }  
-         
-    //     console.log(newFriend);   
-    
-    //     $.post("/api/friends", newFriend).then( function (data) { 
-    //         console.log(data); 
-    //         showMatch(data);
-    //     }); 
-    // }
     });
 }); 

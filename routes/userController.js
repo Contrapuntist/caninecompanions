@@ -34,7 +34,6 @@ router.get("/api/pets", function(req, res) {
     });
 });
 
-
 router.get('/api/pets/:lookupvar', function(req, res) {
     console.log(req.params.lookupvar); 
     var getBreed = req.params.lookupvar;
@@ -45,12 +44,16 @@ router.get('/api/pets/:lookupvar', function(req, res) {
         }
     }).then(function(dbbreed) {
         res.json(dbbreed);
+        // console.log(dbbreed);
     });
 }); 
 
-router.get('/petfinderapi', function (req, res) { 
-        // var querystring = req.body  
-        console.log(req.body); 
+router.get('/petfinderapi/:query', function (req, res) { 
+        // var querystring = req.Url; 
+        console.log('*******************************')
+        console.log('petfinder get request info');
+        console.log(req.params.query); 
+        // console.log(querystring);
 
         var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
         request(queryStr, function(error, response, body) {
@@ -61,9 +64,22 @@ router.get('/petfinderapi', function (req, res) {
                 // Then we print out the imdbRating
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
-                res.json(body);
+                res.json(body); 
+                var hbsObject = { 
+                    dog: JSON.parse(body).petfinder.pets.pet,
+                }
+                res.render("results", hbsObject);
             }
         });
     });
+
+router.post("/api/newuser", function(req, res) {
+        console.log('***************');
+        console.log('In new user post route');
+        console.log(req.body);
+        db.User.create(req.body).then(function(dbUser) {
+          res.json(dbUser);
+        });
+      });
 
 module.exports = router; 
