@@ -1,0 +1,34 @@
+
+{{#each dog}}
+    <div>
+        <p>dog name</p> {{this..name.$t}}
+        <p>dog age: </p> {{this.age.$t}}
+        <p>dog size: </p> {{this..sex.$t}}
+    </div>
+
+    {{!-- <div class="col-sm-4 col-md-4 col-xs-12">
+        <div class="card" style="width: auto;">
+            <img class="card-img-top" id="images" class="images" src="" alt="Card image cap">
+                <div class="card-block">
+                    <center><h1 class="name"></h1></center>
+                    <hr>
+                </div>
+            <div class="dogData">
+                <ul class="list-group list-group-flush">
+                    <div class="city" class="divst-group-item"></div>
+                    <div class="contact" class="list-group-item"></div>
+                    <div class="shelter" class="list-group-item"></div>   
+                </ul>
+                <div class="card-block"><hr>
+                    <div class="age" class="list-group-item"></div>
+                    <div class="sex" class="list-group-item"></div>
+                    <div class="size" class="divst-group-item"></div>
+                </div>
+            </div> 
+            <center><br>
+                <button data-balloon-length="xlarge" class="description" data-balloon="" data-balloon-pos="up"  class="hidden-sm">More Pup Details</button>
+            </center>
+        </div>
+    </div> --}}
+
+{{/each}}
