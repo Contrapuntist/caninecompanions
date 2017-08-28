@@ -51,15 +51,17 @@ router.get('/api/pets/:lookupvar', function(req, res) {
 router.get('/petfinderapi', function (req, res) { 
         // var querystring = req.body  
         console.log(req.body); 
-        // http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json 
-        request("http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json", function(error, response, body) {
+
+        var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
+        request(queryStr, function(error, response, body) {
             
             // If there were no errors and the response code was 200 (i.e. the request was successful)...
             if (!error && response.statusCode === 200) {
         
-            // Then we print out the imdbRating
-            console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
-            console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t);
+                // Then we print out the imdbRating
+                console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
+                console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
+                res.json(body);
             }
         });
     });
