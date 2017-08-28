@@ -58,48 +58,43 @@ $(document).ready(function () {
             dogSize: "small", // frmDogSize 
             dogHome: "house", // frmDogHome
             dogHair: "light", // frmDogShed
-            dogEnergy: "calm" // frmDogEnergy
+            dogEnergy: "calm", // frmDogEnergy
+            testbreedmatch: function () {
+               return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy
+            }
         }
 
-        // validateForm()
-        // var testbreedmatch = userInput.dogSize + userInput.dogHome + userInput.dogHair + userInput.dogEnergy;    // "smallhomelighthighenergy";
-        // userInput.BreedBreedID = testbreedmatch;
-        
-        var testbreedmatch = "smallhomelighthighenergy";
+       
+        console.log(userInput.testbreedmatch());
 
-        // createBreedMatchVal(userInput, function(val) { 
-        //     findBreed(val, userInput); 
-        // });
+        // VALUE FOR TESTING BREED MATCH GET REQUEST
+        // var testbreedmatch = "smallhomelighthighenergy";
 
-        findBreed(testbreedmatch, userInput); 
+        findBreed(userInput); 
 
-        function createBreedMatchVal (obj, cb) { 
-            console.log(obj)
-            var testbreedmatch = obj.dogSize + obj.dogHome + obj.dogHair + obj.dogEnergy;        
-            return cb(testbreedmatch);
-        } 
-        // userCreate(userInput);
 
+        // CREATE NEW USER 
         function userCreate (userObj) { 
             $.post("/api/newuser", userObj, function (data) {
                 console.log("user added: " + data);
             });
         }
 
-        function findBreed (breedselect, inputObj) { 
+        // MATCH BREED BASED ON USER INPUT
+        function findBreed (inputObj) { 
             console.log("in find breed");
             console.log(inputObj); 
-            console.log(breedselect);
-            var getBreedUrl = "api/pets/" + breedselect;
+            console.log(inputObj.testbreedmatch());
+            var getBreedUrl = "api/pets/" + inputObj.testbreedmatch();
             console.log('url: ' + getBreedUrl);
             $.ajax({
-                url: getBreedUrl,
+                url: "api/pets/" + inputObj.testbreedmatch(),
                 method: "GET"
             }).done(function (res) {
-                console.log(res.breedName); 
-                var dogbreedvalue = res.breedName;
+                console.log(res); 
+                // var dogbreedvalue = res.breedName;
                 
-                makeQueryStrings(dogbreedvalue, inputObj); 
+                // makeQueryStrings(dogbreedvalue, inputObj); 
                 // makePFQueryString(inputObj, dogbreedvalue); 
                 // queryStringWolfram(dogbreedvalue); 
             }); 
@@ -120,6 +115,7 @@ $(document).ready(function () {
 
         }
 
+        // METHOD FOR CREATING PETFINDER QUERY STRING
         function makePFQueryString (formObj, dogbreed ) { 
             console.log(formObj); 
             
@@ -165,7 +161,8 @@ $(document).ready(function () {
             console.log(formObj);
             return queryStrPetfinder; 
         }
-    
+        
+        // METHOD FOR CREATING WOLFRAM API QUERY STRING
         function queryStringWolfram (dogbreed) { 
         
             var wolframBaseUrlStart = 'http://api.wolframalpha.com/v2/query?input=';
@@ -185,18 +182,20 @@ $(document).ready(function () {
             return wolframApiUrl;
         }    
 
+        // PETFINDER API 'PROXY' CALL THROUGH SERVER/ROUTING 
         function petfindercall (querystring) {
             console.log('in petfinder api call'); 
-            var queryStr = "/petfinderapi/" + querystring;
+            var queryStr = "/petfinderapi"
             console.log('petfinder API string URL: ' + queryStr );
             $.ajax({
                 method: 'get',  
-                url: queryStr
+                url: '/petfinderapi'
             }).done(function(res) { 
                 console.log(res); 
             });
         }
         
+        // WOLFRAM API 'PROXY' CALL THROUGH SERVER/ROUTING
         function wolframcall (querystring) { 
             $.ajax({
                 method: 'get',
@@ -206,12 +205,14 @@ $(document).ready(function () {
                 console.log(res); 
             });
         }
-        
+ 
+    // TESTING METHOD TO DO SYNCHRONIZED CALL WITH WHEN **** (NOT DONE) ****        
     // function multiAPIcall (petfinderquery, wolframquery) { 
     //     $.when( 
     //         $.ajax({ method: 'get', url: '/petfinderapi' }), 
     //         $.ajax({ method: 'get', url: '/wolframapi' }))
     // }     
 
-    });
+    }); // CLOSE TO EVENT ON 'CLICK'
+
 }); 
