@@ -104,13 +104,13 @@ $(document).ready(function () {
             var a = makePFQueryString(inputObj, dogbreed); 
             var b = queryStringWolfram(dogbreed); 
             
-            $.when ( a, b ).done(function (query1, query2) {
+            $.when ( a, b ).done(function (query1, wolfval) {
                 console.log('from WHEN function'); 
                 console.log(query1);
-                console.log(query2);
+                console.log(wolfval);
                 console.log('===================');
-                petfindercall(a);
-                // wolframcall(b);
+                petfindercall(query1);
+                wolframcall(wolfval);
             });
 
         }
@@ -165,8 +165,8 @@ $(document).ready(function () {
         // METHOD FOR CREATING WOLFRAM API QUERY STRING
         function queryStringWolfram (dogbreed) { 
         
-            var wolframBaseUrlStart = 'http://api.wolframalpha.com/v2/query?input=';
-            var wolframBaseUrlEnd = '%20dog&appid=2TT3R3-JA5HLQH996&output=json';
+            // var wolframBaseUrlStart = 'http://api.wolframalpha.com/v2/query?input=';
+            // var wolframBaseUrlEnd = '%20dog&appid=2TT3R3-JA5HLQH996&output=json';
             
             //Replace spaces in the breed name so that it can be passed into the query string 
             var wolframBreed = function() {
@@ -176,10 +176,11 @@ $(document).ready(function () {
                 return replaced;
             }
             
-            var wolframApiUrl = wolframBaseUrlStart + wolframBreed() + wolframBaseUrlEnd;
-            console.log(wolframApiUrl); 
-
-            return wolframApiUrl;
+            // var wolframApiUrl = wolframBaseUrlStart + wolframBreed() + wolframBaseUrlEnd;
+            // console.log(wolframApiUrl); 
+            dogbreed = wolframBreed();
+            console.log(dogbreed);
+            return dogbreed;
         }    
 
         // PETFINDER API 'PROXY' CALL THROUGH SERVER/ROUTING 
@@ -197,11 +198,12 @@ $(document).ready(function () {
         }
         
         // WOLFRAM API 'PROXY' CALL THROUGH SERVER/ROUTING
-        function wolframcall (querystring) { 
+        function wolframcall (queryvalue) { 
+            var wolfqrstr = '/wolframapi/' + queryvalue;
+            console.log(wolfqrstr);
             $.ajax({
                 method: 'get',
-                url: '/wolframapi',
-                data: querystring
+                url: wolfqrstr
             }).done(function(res) { 
                 console.log(res); 
             });

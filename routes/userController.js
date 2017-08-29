@@ -81,6 +81,38 @@ router.get('/petfinderapi/', function (req, res) {
     
 });
 
+router.get('/wolframapi/:dogbreed', function (req, res) { 
+    
+    var wolframBaseUrlStart = 'http://api.wolframalpha.com/v2/query?input=';
+    var wolframBaseUrlEnd = '%20dog&appid=2TT3R3-JA5HLQH996&output=json';
+     
+    // var apiQueryStr = "http://api.wolframalpha.com/v2/query?" + querystring.stringify(req.query, '&', '=');
+    console.log('*******************************');
+    console.log('Wolfram API get request info');
+    console.log(req.params.dogbreed);
+    var wolframApiUrl = wolframBaseUrlStart + req.params.dogbreed + wolframBaseUrlEnd;
+
+    console.log(wolframApiUrl); 
+
+    request(wolframApiUrl, function(error, response, body) {
+        
+        // If there were no errors and the response code was 200 (i.e. the request was successful)...
+        if (!error && response.statusCode === 200) {
+    
+            // Then we print out the imdbRating
+            // console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
+            // console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
+            res.json(body); 
+            // var hbsObject = { 
+            //     dog: JSON.parse(body).petfinder.pets.pet,
+            // }
+            // console.log (hbsObject);
+            // res.render("index", hbsObject);
+        }
+    });
+
+});
+
 router.post("/api/newuser", function(req, res) {
         console.log('***************');
         console.log('In new user post route');
