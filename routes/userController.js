@@ -3,11 +3,17 @@ var express = require('express');
 var router = express.Router();
 var request = require('request'); 
 var db = require("../models");
+
+// NODE MODULE FOR STRINGIFY-ING OBJECT FOR A QUERY
+// USED FOR PETFINDER API CALL
 const querystring = require('querystring'); 
 
 // MODULE REQUIREMENTS FOR ROUTING HTML FILES
 var path = require('path');
-    
+
+var apiResultsObj = {};
+
+
 // index
 router.get('/', function(req, res) {
     console.log('reached app get in html routes file'); 
@@ -26,6 +32,12 @@ router.get('/', function(req, res) {
     // });
 
 });
+
+router.get('/yourmatch', function(req, res) {
+    
+    res.render("adoptdog", apiResultsObj);
+});
+
 
 router.get("/api/pets", function(req, res) {
     var query = {};
@@ -71,6 +83,9 @@ router.get('/petfinderapi/', function (req, res) {
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
                 res.json(body); 
+                
+                apiResultsObj.dogs = JSON.parse(body).petfinder.pets.pet
+                
                 // var hbsObject = { 
                 //     dog: JSON.parse(body).petfinder.pets.pet,
                 // }
@@ -98,16 +113,14 @@ router.get('/wolframapi/:dogbreed', function (req, res) {
         
         // If there were no errors and the response code was 200 (i.e. the request was successful)...
         if (!error && response.statusCode === 200) {
-    
-            // Then we print out the imdbRating
-            // console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
-            // console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
-            res.json(body); 
+            console.log(body);
+            res.render('adoptdog'); 
             // var hbsObject = { 
             //     dog: JSON.parse(body).petfinder.pets.pet,
             // }
             // console.log (hbsObject);
             // res.render("index", hbsObject);
+            // redirect('/yourmatch');
         }
     });
 
