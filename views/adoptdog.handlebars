@@ -1,0 +1,24 @@
+<div>
+    <img src="\img\adopt-dog.jpg" alt="testing img">
+</div>
+
+{{#each dogs}}
+    <div style="margin: 20px">
+        <p>dog name</p> {{this..name.$t}}
+        <p>dog age: </p> {{this.age.$t}}
+        <p>dog size: </p> {{this..sex.$t}}
+    </div> 
+{{/each}}
+  
+
+
+{{!-- 
+    couple of ideas to generate dog results.  
+
+    1. in '/' route add if else checking if an apiobject is empty or has property
+
+    2. create new page that routes to results specifically.  
+
+    Note: unclear which one is more efficient.  
+
+ --}}
