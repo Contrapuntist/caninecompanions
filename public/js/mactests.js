@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-    
+    // jQuery EVENT LISTENERS 
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
         
@@ -56,7 +56,7 @@ $(document).ready(function () {
             dogSex: "male", // frmDogGender
             dogAge: "baby", // frmDogAge
             dogSize: "small", // frmDogSize 
-            dogHome: "house", // frmDogHome
+            dogHome: "home", // frmDogHome
             dogHair: "light", // frmDogShed
             dogEnergy: "calm", // frmDogEnergy
             testbreedmatch: function () {
@@ -71,7 +71,7 @@ $(document).ready(function () {
         // var testbreedmatch = "smallhomelighthighenergy";
 
         findBreed(userInput); 
-
+     
 
         // CREATE NEW USER 
         function userCreate (userObj) { 
@@ -92,9 +92,9 @@ $(document).ready(function () {
                 method: "GET"
             }).done(function (res) {
                 console.log(res); 
-                // var dogbreedvalue = res.breedName;
+                var dogbreedvalue = res.breedName;
                 
-                // makeQueryStrings(dogbreedvalue, inputObj); 
+                makeQueryStrings(dogbreedvalue, inputObj); 
                 // makePFQueryString(inputObj, dogbreedvalue); 
                 // queryStringWolfram(dogbreedvalue); 
             }); 
@@ -103,7 +103,7 @@ $(document).ready(function () {
         function makeQueryStrings(dogbreed, inputObj) { 
             var a = makePFQueryString(inputObj, dogbreed); 
             var b = queryStringWolfram(dogbreed); 
-           
+            
             $.when ( a, b ).done(function (query1, query2) {
                 console.log('from WHEN function'); 
                 console.log(query1);
@@ -149,7 +149,7 @@ $(document).ready(function () {
                 }
             } 
             // example query string; http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Chihuahua&size=S&sex=&age=young&location=60657&output=full&format=json
-            var queryStrPetfinder = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=" 
+            var queryStrPetfinder = "key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=" 
             + dogbreed 
             + adjustDogSex() 
             + "&age=" + formObj.dogAge
@@ -185,11 +185,12 @@ $(document).ready(function () {
         // PETFINDER API 'PROXY' CALL THROUGH SERVER/ROUTING 
         function petfindercall (querystring) {
             console.log('in petfinder api call'); 
-            var queryStr = "/petfinderapi"
-            console.log('petfinder API string URL: ' + queryStr );
+            var queryStr = "/petfinderapi";
+            console.log('petfinder API string URL: ' + querystring );
             $.ajax({
                 method: 'get',  
-                url: '/petfinderapi'
+                url: queryStr,
+                data: querystring
             }).done(function(res) { 
                 console.log(res); 
             });
@@ -205,13 +206,13 @@ $(document).ready(function () {
                 console.log(res); 
             });
         }
- 
-    // TESTING METHOD TO DO SYNCHRONIZED CALL WITH WHEN **** (NOT DONE) ****        
-    // function multiAPIcall (petfinderquery, wolframquery) { 
-    //     $.when( 
-    //         $.ajax({ method: 'get', url: '/petfinderapi' }), 
-    //         $.ajax({ method: 'get', url: '/wolframapi' }))
-    // }     
+    
+        // TESTING METHOD TO DO SYNCHRONIZED CALL WITH WHEN **** (NOT DONE) ****        
+        // function multiAPIcall (petfinderquery, wolframquery) { 
+        //     $.when( 
+        //         $.ajax({ method: 'get', url: '/petfinderapi' }), 
+        //         $.ajax({ method: 'get', url: '/wolframapi' }))
+        // }     
 
     }); // CLOSE TO EVENT ON 'CLICK'
 

@@ -49,35 +49,35 @@ router.get('/api/pets/:lookupvar', function(req, res) {
     });
 }); 
 
-router.get('/petfinderapi', function (req, res) { 
-        var apiQueryStr = querystring.stringify(req.query);
-        
+router.get('/petfinderapi/', function (req, res) { 
+        console.log(req.query); 
+        var apiQueryStr = "http://api.petfinder.com/pet.find?" + querystring.stringify(req.query, '&', '=');
+        // var secondoption = req.params.apicall;
         console.log('*******************************');
         console.log('petfinder get request info');
-        console.log(apiQueryStr);
-        console.log('request from query: ' + req.query); 
+        console.log(res)        
+        console.log(apiQueryStr);     
         
-        
-        res.send(req.query);
-        
+        // res.send(req.query); 
         // res.redirect('/')
     
-        //     var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
-    //     request(queryStr, function(error, response, body) {
+        var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
+        request(apiQueryStr, function(error, response, body) {
             
-    //         // If there were no errors and the response code was 200 (i.e. the request was successful)...
-    //         if (!error && response.statusCode === 200) {
+            // If there were no errors and the response code was 200 (i.e. the request was successful)...
+            if (!error && response.statusCode === 200) {
         
-    //             // Then we print out the imdbRating
-    //             console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
-    //             console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
-    //             res.json(body); 
-    //             var hbsObject = { 
-    //                 dog: JSON.parse(body).petfinder.pets.pet,
-    //             }
-    //             res.render("index", hbsObject);
-    //         }
-    //     });
+                // Then we print out the imdbRating
+                console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
+                console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
+                res.json(body); 
+                // var hbsObject = { 
+                //     dog: JSON.parse(body).petfinder.pets.pet,
+                // }
+                // console.log (hbsObject);
+                // res.render("index", hbsObject);
+            }
+        });
     
 });
 
@@ -88,6 +88,17 @@ router.post("/api/newuser", function(req, res) {
         db.User.create(req.body).then(function(dbUser) {
           res.json(dbUser);
         });
-      });
+      }); 
+
+// testing querystring node module 
+
+var a = { 
+    I: "am",
+    thrilled: "this",
+    is: "working"
+} 
+var unifyStr = querystring.stringify(a);
+console.log('############');
+console.log(unifyStr);
 
 module.exports = router; 
