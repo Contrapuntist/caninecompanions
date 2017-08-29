@@ -20,6 +20,7 @@
     <div class="site-wrapper">
         <div class="site-wrapper-inner">
             <div class="container">
+
                 <div class="masthead-clearfix">
                     <div class="inner">
                         <h3 class="masthead-brand"><img src="img/finding-fido-logo-WYonK.png" width="100"></h3>
@@ -31,274 +32,285 @@
                         </nav>
                     </div>
                 </div>
+
+            </div>
     
-    <div class="container">
-        <div class="inner">
-            <div class="image">
-                <img src="https://www.freeindex.co.uk/media/listingpics/592/513/dog-walking-dog-training-pawfect.jpg">
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="inner">
-            <div class="mission">
-                <p><img src="img/finding-fido-logo-KYonW-center.png" width="400"></p>
-                    <p class="lead">Your one stop source for finding the rescue dog of your dreams!.<br>
-                    Take a short quiz to figure out the dogs best suited to your lifestyle and needs.<br>
-                    Save your search results by creating an account.</p>
-                    <p class="lead">
-                        <a href=" " class="btn btn-lg btn-warning">Get Started</a>
-                    </p>
-            </div>
-        </div>
-    </div>
-
-<form class="container" id="needs-validation" data-toggle="validator" novalidate>
-    <div class="form container">
-        <div class="container">
-            <div class="jumbotron">
-                <div class="form-row">
-
-                    <div class="form-group col-md-6">
-                        <label for="inputFirstName" class="col-form-label" id="firstName-js">First Name</label>
-                        <input type="text" class="form-control" placeholder="Jane" required></input>
-                        <div class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <label for="inputLastName" class="col-form-label" id ="lastName-js">Last Name</label>
-                        <input type="text" class="form-control" placeholder="Smith" required>
-                        <div class="invalid-feedback"></div>
-                    </div>
-
-                    <div class="form-row">
-
-                        <div class="form-group col-md-4">
-                            <label for="inputEmail4" class="col-form-label" id="email-js">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="janesmith@gmail.com" required>
-                            <div class="invalid-feedback"></div>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="inputPassword4" class="col-form-label" id="password-js">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" required>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="inputZip" class="col-form-label" id="zip-js">Zip</label>
-                            <input type="text" class="form-control" id="inputZip" required>
-                        </div>
-
+            <div class="container">
+                <div class="inner">
+                    <div class="image">
+                        <img src="https://www.freeindex.co.uk/media/listingpics/592/513/dog-walking-dog-training-pawfect.jpg">
                     </div>
                 </div>
+            </div>
 
-                <div>
+            <div class="container">
+                <div class="inner">
+                    <div class="mission">
+                        <p><img src="img/finding-fido-logo-KYonW-center.png" width="400"></p>
+                            <p class="lead">Your one stop source for finding the rescue dog of your dreams!.<br>
+                            Take a short quiz to figure out the dogs best suited to your lifestyle and needs.<br>
+                            Save your search results by creating an account.</p>
+                            <p class="lead">
+                                <a href=" " class="btn btn-lg btn-warning">Get Started</a>
+                            </p>
+                    </div>
+                </div>
+            </div>
 
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>Do you want a specific gender for your dog?</h5>
+            <form class="container" id="needs-validation" data-toggle="validator" novalidate>
+                <div class="form container">
+                    <div class="jumbotron">
+                        <div class="row">
+
+                            <div class="col">
+                                <label for="inputFirstName" class="form-control-label" id="firstName-js">First Name</label>
+                                <input type="text" class="form-control" placeholder="Jane" required></input>
+                                <div class="invalid-feedback"></div>
                             </div>
+
+                            <div class="col">
+                                <label for="inputLastName" class="form-control-label" id ="lastName-js">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Smith" required></input>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col">
+                                <label for="inputEmail4" class="form-control-label" id="email-js">Email</label>
+                                <input type="email" class="form-control" placeholder="janesmith@gmail.com" required></input>
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="col">
+                                <label for="inputPassword4" class="form-control-label" id="password-js">Password</label>
+                                <input type="password" class="form-control" name="password" required></input>
+                            </div>
+
+                            <div class="col">
+                                <label for="inputZip" class="form-control-label" id="zip-js">Zip</label>
+                                <input type="text" class="form-control" name="zip" required></input>
+                            </div>
+
+                        </div>
+
+                        <div>
+
+                            <div class="row">
+                                <div class="col-auto question">
+                                    <h5>Do you want a specific gender for your dog?</h5>
+                                </div>
+                            </div>
+                            
+                            <!-- SEX -->
+                            <div class="custom-controls-stacked d-block my-3 dogSex-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="female" name="dog-sex" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Female</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="male" name="dog-sex" class="custom-control-input" required> </input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Male</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="any" name="dog-sex" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Any</h6>
+                                </label>
+                            </div>
+            
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="question">
+                                        <h5>What age dog would you like?</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AGE -->
+                            <div class="custom-controls-stacked d-block my-3 dogAge-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="puppy" name="dog-age" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Puppy</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="young" name="dog-age" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Young</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="adult" name="dog-age" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Adult</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="senior" name="dog-age" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Senior</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="any" name="dog-age" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Any</h6>
+                                </label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="question">
+                                        <h5>What size dog would you like?</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SIZE -->
+                            <div class="custom-controls-stacked d-block my-3 dogSize-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="small" name="dog-size" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Small</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="medium" name="dog-size" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Medium</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="large" name="dog-size" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Large</h6>
+                                </label>
+                            </div>     
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="question">
+                                        <h5>Will your dog be in a house with a yard or an apartment/condo?</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HOME -->
+                            <div class="custom-controls-stacked d-block my-3 dogHome-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="apartment" name="dog-home" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">House</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="house" name="dog-home" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Apartment/Condo</h6>
+                                </label>
+                            </div>     
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="question">
+                                        <h5>Are you looking for a dog that is a light shedder or would you love any dog regardless?</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- HAIR -->
+                            <div class="custom-controls-stacked d-block my-3 dogHair-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="apartment" name="dog-hair" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Light</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="house" name="dog-hair" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Any</h6>
+                                </label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="question">
+                                        <h5>Do you want an energetic dog to play fetch with or would you like a calm dog to snuggle with on the sofa?</h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ENERGY -->
+                            <div class="custom-controls-stacked d-block my-3 dogEnergy-js">
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="apartment" name="dog-energy" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Energetic</h6>
+                                </label>
+                                <label class="col custom-control custom-radio">
+                                    <input type="radio" value="house" name="dog-energy" class="custom-control-input" required></input>
+                                    <span class="custom-control-indicator"></span>
+                                    <h6 class="custom-control-description">Calm</h6>
+                                </label>
+                            </div>    
+
+
+                            <button type="submit" id="submitbtn" class="btn btn-lg btn-warning">Submit</button>
+
                         </div>
                     </div>
                     
-                    <!-- SEX -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogSex-js">
-                        <label class="col-md-4 custom-control custom-radio">
-                            <input type="radio" value="female" name="dog-sex" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Female</h6>
-                        </label>
-                        <label class="col-md-3 custom-control custom-radio">
-                            <input type="radio" value="male" name="dog-sex" class="custom-control-input" required> 
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Male</h6>
-                        </label>
-                        <label class="col-md-3 custom-control custom-radio">
-                            <input type="radio" value="any" name="dog-sex" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any</h6>
-                        </label>
-                    </div>
-    
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>What age dog would you like?</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AGE -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogAge-js">
-                        <label class="col-md-2 custom-control custom-radio">
-                            <input type="radio" value="puppy" name="dog-age" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puppy</h6>
-                        </label>
-                        <label class="col-md-2 custom-control custom-radio">
-                            <input type="radio" value="young" name="dog-age" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Young</h6>
-                        </label>
-                        <label class="col-md-2 custom-control custom-radio">
-                            <input type="radio" value="adult" name="dog-age" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adult</h6>
-                        </label>
-                        <label class="col-md-2 custom-control custom-radio">
-                            <input type="radio" value="senior" name="dog-age" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Senior</h6>
-                        </label>
-                        <label class="col-md-1 custom-control custom-radio">
-                            <input type="radio" value="any" name="dog-age" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any</h6>
-                        </label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>What size dog would you like?</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SIZE -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogSize-js">
-                        <label class="col-md-3 custom-control custom-radio">
-                            <input type="radio" value="small" name="dog-size" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Small</h6>
-                        </label>
-                        <label class="col-md-3 custom-control custom-radio">
-                            <input type="radio" value="medium" name="dog-size" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Medium</h6>
-                        </label>
-                        <label class="col-md-3 custom-control custom-radio">
-                            <input type="radio" value="large" name="dog-size" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Large</h6>
-                        </label>
-                    </div>     
-
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>Will your dog be in a house with a yard or an apartment/condo?</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HOME -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogHome-js">
-                        <label class="col-md-4 custom-control custom-radio">
-                            <input type="radio" value="apartment" name="dog-home" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;House</h6>
-                        </label>
-                        <label class="col-md-4 custom-control custom-radio">
-                            <input type="radio" value="house" name="dog-home" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Apartment/Condo</h6>
-                        </label>
-                    </div>     
-
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>Are you looking for a dog that is a light shedder or would you love any dog regardless?</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HAIR -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogHair-js">
-                        <label class="col-md-6 custom-control custom-radio">
-                            <input type="radio" value="apartment" name="dog-hair" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Light</h6>
-                        </label>
-                        <label class="col-md-4 custom-control custom-radio">
-                            <input type="radio" value="house" name="dog-hair" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Any</h6>
-                        </label>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-form-legend col-md-12">
-                            <div class="question">
-                                <h5>Do you want an energetic dog to play fetch with or would you like a calm dog to snuggle with on the sofa?</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ENERGY -->
-                    <div class="form-row custom-controls-stacked d-block my-3" class="dogEnergy-js">
-                        <label class="col-md-5 custom-control custom-radio">
-                            <input type="radio" value="apartment" name="dog-energy" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Energetic</h6>
-                        </label>
-                        <label class="col-md-4 custom-control custom-radio">
-                            <input type="radio" value="house" name="dog-energy" class="custom-control-input" required>
-                            <span class="custom-control-indicator"></span>
-                            <h6 class="custom-control-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calm</h6>
-                        </label>
-                    </div>    
-
-
-                    <button type="submit" id="submitbtn" class="btn btn-lg btn-warning">Submit</button>
-
                 </div>
-            </div>
+            </form>
+
         </div>
-    </div>
-</form>
-            <!-- <div class="mastfoot">
-               <div class="inner">
-                    <nav class="nav nav-footer">
-                        <a class="nav-link" img ="../public/img/Twitter_Social_Icon_Circle">Twitter</a>
-                        <a class="nav-link" href="#">Facebook</a>
-                        <a class="nav-link" href="#">Instagram</a>
-               add Finding Fido copyright 2017 -->
-                    <!-- </nav>
-               </div>
-            </div>
-                                
-     Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    </div>   
 
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (function() {
-    "use strict";
-    window.addEventListener("load", function() {
-        var form = document.getElementById("needs-validation");
-        form.addEventListener("submit", function(event) {
-        if (form.checkValidity() == false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        form.classList.add("was-validated");
+    <footer class="footer">
+
+        <!-- LOGO -->
+        <div class="col-md-2 col-sm-12">
+            <img src="img/finding-fido-logo-WYonK.png" width="200"> 
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="col-md-9 col-sm-12 footer-contact">
+
+            <p>admin@findingfido.com</p>
+            <p>1-800-123-4567</p>
+            <p>339 E Chicago Avenue</p>
+            <p>Chicago, Illinois 60611</p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        "use strict";
+        window.addEventListener("load", function() {
+            var form = document.getElementById("needs-validation");
+            form.addEventListener("submit", function(event) {
+            if (form.checkValidity() == false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+            }, false);
         }, false);
-    }, false);
-  }());
-</script>
+    }());
+    </script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
-integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" 
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
-integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" 
+    integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-<script src="/js/mactests.js"></script>
+    <script src="/js/mactests.js"></script>
 
 
 </body>
