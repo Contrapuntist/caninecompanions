@@ -21,15 +21,13 @@ router.get('/', function(req, res) {
 
 });
 
-
+// Should render adoptdog handlebars
 router.get('/yourmatch', function(req, res) {
-    
     res.render("adoptdog", {breed: apiResultsObj.wolframinfo} );
 });
 
-
-
-router.get("/api/pets", function(req, res) {
+// gets all breeds
+router.get("/api/breedmatches", function(req, res) {
     var query = {};
     // post is model
     db.Breed.findAll({}).then(function(dbbreeds) {
@@ -57,13 +55,12 @@ router.get('/petfinderapi/', function (req, res) {
         // var secondoption = req.params.apicall;
         console.log('*******************************');
         console.log('petfinder get request info');
-        console.log(res)        
+        // console.log(res)        
         console.log(apiQueryStr);     
         
         // res.send(req.query); 
         // res.redirect('/')
     
-        var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
         request(apiQueryStr, function(error, response, body) {
             
             // If there were no errors and the response code was 200 (i.e. the request was successful)...
@@ -82,7 +79,7 @@ router.get('/petfinderapi/', function (req, res) {
                 // }
                 // console.log (hbsObject);
                 // res.render("index", hbsObject);
-            }
+            }        
         });
     
 });
@@ -111,12 +108,6 @@ router.get('/wolframapi/:dogbreed', function (req, res) {
             res.json(results);
             // res.redirect('/yourmatch');
             // res.render('adoptdog'); 
-            // var hbsObject = { 
-            //     dog: JSON.parse(body).petfinder.pets.pet,
-            // }
-            // console.log (hbsObject);
-            // res.render("index", hbsObject);
-            // redirect('/yourmatch');
         } 
     });
 

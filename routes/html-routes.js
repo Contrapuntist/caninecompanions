@@ -1,7 +1,3 @@
-// MODULE REQUIREMENTS FOR ROUTING HANDLEBARS
-var express = require('express');
-var router = express.Router();
-
 // MODULE REQUIREMENTS FOR ROUTING HTML FILES
 var path = require('path');
 
