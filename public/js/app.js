@@ -9,7 +9,7 @@ $(document).ready(function () {
         
         console.log("button clicked"); 
 
-        //Need to figure out why value is not being stored for text input fields
+        //Text input fields
         var frmLastName = $("#lastName-js").val().trim();
         console.log(frmLastName);
         var frmFirstName = $("#firstName-js").val().trim();
@@ -21,6 +21,7 @@ $(document).ready(function () {
         var frmZip = $("#zip-js").val().trim();
         console.log(frmZip);
 
+        // variable data for calling API
         var frmDogSex = $("input[name='dog-sex']:checked").val();
         console.log(frmDogSex);
         var frmDogAge = $("input[name='dog-age']:checked").val();
@@ -37,8 +38,8 @@ $(document).ready(function () {
         console.log(frmDogEnergy);
 
 
-        var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
-        var formInput = {
+        //var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
+        var userInput = {
             lastName: frmLastName,
             firstName: frmFirstName, 
             email: frmEmail,
@@ -50,32 +51,35 @@ $(document).ready(function () {
             dogHome: frmDogHome,
             dogHair: frmDogHair,
             dogEnergy: frmDogEnergy,
+            breedMatch: function () {
+                return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy;
+             }
         }
         
-        console.log("form input: " + formInput); 
+        console.log("form input: " + userInput); 
 
        
-        console.log(formInput);
+        console.log(userInput);
 
         // VALUE FOR TESTING BREED MATCH GET REQUEST
-        // var testbreedmatch = "smallhomelighthighenergy";
+        // var breedMatch = "smallhomelighthighenergy";
 
-        var userInput = {		
-            lastName: "Doe", // frmLastName,		
-            firstName: "Jane", // frmFirstName, 		
-            email: "jdoe1234@gmail.com", // frmEmail,		
-            password: '1234567', // frmPassword,		
-            zip: "60601", // frmZip 		
-            dogSex: "male", // frmDogGender		
-            dogAge: "baby", // frmDogAge		
-            dogSize: "small", // frmDogSize 		
-            dogHome: "home", // frmDogHome		
-            dogHair: "light", // frmDogShed		
-            dogEnergy: "calm", // frmDogEnergy		
-            testbreedmatch: function () {		
-               return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy		
-            }		
-        }
+        // var userInput = {		
+        //     lastName: "Doe", // frmLastName,		
+        //     firstName: "Jane", // frmFirstName, 		
+        //     email: "jdoe1234@gmail.com", // frmEmail,		
+        //     password: '1234567', // frmPassword,		
+        //     zip: "60601", // frmZip 		
+        //     dogSex: "male", // frmDogGender		
+        //     dogAge: "baby", // frmDogAge		
+        //     dogSize: "small", // frmDogSize 		
+        //     dogHome: "home", // frmDogHome		
+        //     dogHair: "light", // frmDogShed		
+        //     dogEnergy: "calm", // frmDogEnergy		
+        //     testbreedmatch: function () {		
+        //        return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy		
+        //     }		
+        // }
 
         findBreed(userInput); 
      
@@ -91,11 +95,11 @@ $(document).ready(function () {
         function findBreed (inputObj) { 
             console.log("in find breed");
             console.log(inputObj); 
-            console.log(inputObj.testbreedmatch());
-            var getBreedUrl = "api/pets/" + inputObj.testbreedmatch();
+            console.log(inputObj.breedMatch());
+            var getBreedUrl = "api/pets/" + inputObj.breedMatch();
             console.log('url: ' + getBreedUrl);
             $.ajax({
-                url: "api/pets/" + inputObj.testbreedmatch(),
+                url: "api/pets/" + inputObj.breedMatch(),
                 method: "GET"
             }).done(function (res) {
                 console.log(res); 
