@@ -17,26 +17,16 @@ var apiResultsObj = {};
 // index
 router.get('/', function(req, res) {
     console.log('reached app get in html routes file'); 
-    res.render("index");
-
-    // RENDER INDEX HANDLEBARS FILE
-    // router.get("/", function(req, res) {
-        
-    //     MODEL CALL 
-    //     cat.all(function(data) {
-    //       var hbsObject = {
-    //         cats: data
-    //       };
-    //     console.log(hbsObject);
-    //     });       
-    // });
+    res.render("index", apiResultsObj);
 
 });
+
 
 router.get('/yourmatch', function(req, res) {
-
-    res.render("adoptdog", apiResultsObj);
+    
+    res.render("adoptdog", {breed: apiResultsObj.wolframinfo} );
 });
+
 
 
 router.get("/api/pets", function(req, res) {
@@ -116,8 +106,9 @@ router.get('/wolframapi/:dogbreed', function (req, res) {
             // console.log(body);
             var results = JSON.parse(body);
             // console.log(results)
-            extractWolframContent(results);
-
+            // extractWolframContent(results);
+            res.json(results);
+            // res.redirect('/yourmatch');
             // res.render('adoptdog'); 
             // var hbsObject = { 
             //     dog: JSON.parse(body).petfinder.pets.pet,

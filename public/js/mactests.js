@@ -206,6 +206,9 @@ $(document).ready(function () {
                 url: wolfqrstr
             }).done(function(res) { 
                 console.log(res); 
+                console.log('back in wolfram api call'); 
+                // $('#app').html(res);
+        
             });
         }
     

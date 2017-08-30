@@ -1,19 +1,19 @@
 <div>
+    <p>In adopt a dog handlebars</p>
     <img src="\img\adopt-dog.jpg" alt="testing img">
 </div>
 
-{{#each dogs}}
-    <div style="margin: 20px">
-        <p>dog name</p> {{this..name.$t}}
-        <p>dog age: </p> {{this.age.$t}}
-        <p>dog size: </p> {{this..sex.$t}}
-    </div> 
+{{#each breed}}
+    the breed is :  {{this}}
 {{/each}}
+
+
+
   
 {{!-- 
 
 ========== content from object from   apiResultsObj.wolframinfo
- 
+
 { breedDescription: 'Very small member of the toy breed family\nHead is very round\nMuzzle is proportionally very small\nEars are large
 and held up, hanging to the sides when the dog is relaxed\nCoat can be either short or long, and wavy or flat when long\nEyes are large
 and round',
