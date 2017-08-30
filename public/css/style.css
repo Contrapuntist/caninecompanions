@@ -116,6 +116,10 @@ label {
   margin-bottom: 25px;
 }
 
+.image {
+  margin-top: 10px;
+}
+
 .custom-control-input:checked~.custom-control-indicator {
     background-color: #ffc107;
 }

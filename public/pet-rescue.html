@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
+
+<!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pet Rescue</title>
 
-    <!-- Bootstrap CSS -->
+<!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
     integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-     <!-- Custom styles for this template -->
+<!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
+
+<!-- Add favicon image -->
+    <link rel=icon href="img/favicon.png">
 
 
 </head>
@@ -28,17 +32,15 @@
                             <a class="nav-link active" href="#">Home</a>
                             <a class="nav-link" href="#">Get Started</a>
                             <a class="nav-link" href="#">Sign in</a>
-                            <!-- <a class="nav-link" href="#">Contact</a> -->
                         </nav>
                     </div>
                 </div>
-
             </div>
     
             <div class="container">
                 <div class="inner">
                     <div class="image">
-                        <img src="https://www.freeindex.co.uk/media/listingpics/592/513/dog-walking-dog-training-pawfect.jpg">
+                        <img src="img/dogs-image.jpg">
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@
                 <div class="inner">
                     <div class="mission">
                         <p><img src="img/finding-fido-logo-KYonW-center.png" width="400"></p>
-                            <p class="lead">Your one stop source for finding the rescue dog of your dreams!.<br>
+                            <p class="lead">Your one stop source for finding the rescue dog of your dreams!<br>
                             Take a short quiz to figure out the dogs best suited to your lifestyle and needs.<br>
                             Save your search results by creating an account.</p>
                             <p class="lead">
@@ -63,14 +65,14 @@
                         <div class="row">
 
                             <div class="col">
-                                <label for="inputFirstName" class="form-control-label" id="firstName-js">First Name</label>
-                                <input type="text" class="form-control" placeholder="Jane" required></input>
+                                <label for="inputFirstName" class="form-control-label" >First Name</label>
+                                <input type="text" class="form-control" id="firstName-js" placeholder="Jane" required></input>
                                 <div class="invalid-feedback"></div>
                             </div>
 
                             <div class="col">
-                                <label for="inputLastName" class="form-control-label" id ="lastName-js">Last Name</label>
-                                <input type="text" class="form-control" placeholder="Smith" required></input>
+                                <label for="inputLastName" class="form-control-label" >Last Name</label>
+                                <input type="text" class="form-control" id ="lastName-js" placeholder="Smith" required></input>
                                 <div class="invalid-feedback"></div>
                             </div>
 
@@ -79,19 +81,19 @@
                         <div class="row bottom">
 
                             <div class="col">
-                                <label for="inputEmail4" class="form-control-label" id="email-js">Email</label>
-                                <input type="email" class="form-control" placeholder="janesmith@gmail.com" required></input>
+                                <label for="inputEmail" class="form-control-label" >Email</label>
+                                <input type="email" class="form-control" id="email-js" placeholder="janesmith@gmail.com" required></input>
                                 <div class="invalid-feedback"></div>
                             </div>
 
                             <div class="col">
-                                <label for="inputPassword4" class="form-control-label" id="password-js">Password</label>
-                                <input type="password" class="form-control" name="password" required></input>
+                                <label for="inputPassword" class="form-control-label" >Password</label>
+                                <input type="password" class="form-control" id="password-js" name="password" required></input>
                             </div>
 
                             <div class="col">
-                                <label for="inputZip" class="form-control-label" id="zip-js">Zip</label>
-                                <input type="text" class="form-control" name="zip" required></input>
+                                <label for="inputZip" class="form-control-label" >Zip</label>
+                                <input type="text" class="form-control" id="zip-js" name="zip" required></input>
                             </div>
 
                         </div>
@@ -104,7 +106,7 @@
                                 </div>
                             </div>
                             
-                            <!-- SEX -->
+        <!-- SEX -->
                             <div class="custom-controls-stacked d-block my-3 dogSex-js">
                                 <label class="col custom-control custom-radio">
                                     <input type="radio" value="female" name="dog-sex" class="custom-control-input" required></input>
@@ -168,7 +170,7 @@
                                 </div>
                             </div>
 
-                            <!-- SIZE -->
+            <!-- SIZE -->
                             <div class="custom-controls-stacked d-block my-3 dogSize-js">
                                 <label class="col custom-control custom-radio">
                                     <input type="radio" value="small" name="dog-size" class="custom-control-input" required></input>
@@ -195,7 +197,7 @@
                                 </div>
                             </div>
 
-                            <!-- HOME -->
+            <!-- HOME -->
                             <div class="custom-controls-stacked d-block my-3 dogHome-js">
                                 <label class="col custom-control custom-radio">
                                     <input type="radio" value="apartment" name="dog-home" class="custom-control-input" required></input>
@@ -217,7 +219,7 @@
                                 </div>
                             </div>
 
-                            <!-- HAIR -->
+            <!-- HAIR -->
                             <div class="custom-controls-stacked d-block my-3 dogHair-js">
                                 <label class="col custom-control custom-radio">
                                     <input type="radio" value="light" name="dog-hair" class="custom-control-input" required></input>
@@ -239,7 +241,7 @@
                                 </div>
                             </div>
 
-                            <!-- ENERGY -->
+            <!-- ENERGY -->
                             <div class="custom-controls-stacked d-block my-3 dogEnergy-js">
                                 <label class="col custom-control custom-radio">
                                     <input type="radio" value="energetic" name="dog-energy" class="custom-control-input" required></input>
@@ -267,12 +269,12 @@
 
     <footer class="footer">
 
-        <!-- LOGO -->
+    <!-- LOGO -->
         <div class="col-md-2 col-sm-12">
             <img src="img/finding-fido-logo-WYonK.png" width="200"> 
         </div>
 
-        <!-- SOCIAL MEDIA -->
+    <!-- SOCIAL MEDIA -->
         <div class="col-md-9 col-sm-12 footer-contact">
 
             <p>admin@findingfido.com</p>
