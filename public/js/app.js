@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    // $("#results").hide();
+    $("#results").hide();
 
 
     // jQuery EVENT LISTENERS 
@@ -123,7 +123,7 @@ $(document).ready(function () {
                 console.log(wolfval);
                 console.log('===================');
                 petfindercall(query1);
-                // wolframcall(wolfval);
+                wolframcall(wolfval);
             });
 
         }
@@ -233,14 +233,14 @@ $(document).ready(function () {
                 url: wolfqrstr
             }).done(function(response) { 
                 
-                $('#results').show();
                 // console.log('back in wolfram api call'); 
                 //   console.log(response); 
                 // $('#app').html(res);
                 $(".dogInfo").html("<b>About: </b>" + response.queryresult.pods[4].subpods[0].plaintext + "<br>");
                 $(".dogName").html(response.queryresult.pods[0].subpods[0].plaintext  );
                 $(".dogHistory").html("<b> History: </b>" + response.queryresult.pods[6].subpods[0].plaintext );
-        
+                
+                $('#results').show();
             });
         }
     
