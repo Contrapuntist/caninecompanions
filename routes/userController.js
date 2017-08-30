@@ -72,9 +72,10 @@ router.get('/petfinderapi/', function (req, res) {
                 // Then we print out the imdbRating
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
-                res.json(body); 
-                
-                apiResultsObj.dogs = JSON.parse(body).petfinder.pets.pet
+
+                var results = JSON.parse(body); 
+                console.log(results);
+                res.json(results);
                 
                 // var hbsObject = { 
                 //     dog: JSON.parse(body).petfinder.pets.pet,
@@ -131,15 +132,6 @@ router.post("/api/newuser", function(req, res) {
       }); 
 
 // testing querystring node module 
-
-var a = { 
-    I: "am",
-    thrilled: "this",
-    is: "working"
-} 
-var unifyStr = querystring.stringify(a);
-console.log('############');
-console.log(unifyStr);
 
 function extractWolframContent(obj) { 
     console.log(obj);

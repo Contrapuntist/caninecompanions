@@ -1,5 +1,8 @@
+
 $(document).ready(function () {
-    
+    $("#results").hide();
+
+
     // jQuery EVENT LISTENERS 
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
@@ -57,7 +60,24 @@ $(document).ready(function () {
         // VALUE FOR TESTING BREED MATCH GET REQUEST
         // var testbreedmatch = "smallhomelighthighenergy";
 
-        findBreed(formInput); 
+        var userInput = {		
+            lastName: "Doe", // frmLastName,		
+            firstName: "Jane", // frmFirstName, 		
+            email: "jdoe1234@gmail.com", // frmEmail,		
+            password: '1234567', // frmPassword,		
+            zip: "60601", // frmZip 		
+            dogSex: "male", // frmDogGender		
+            dogAge: "baby", // frmDogAge		
+            dogSize: "small", // frmDogSize 		
+            dogHome: "home", // frmDogHome		
+            dogHair: "light", // frmDogShed		
+            dogEnergy: "calm", // frmDogEnergy		
+            testbreedmatch: function () {		
+               return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy		
+            }		
+        }
+
+        findBreed(userInput); 
      
 
         // CREATE NEW USER 
@@ -179,8 +199,22 @@ $(document).ready(function () {
                 method: 'get',  
                 url: queryStr,
                 data: querystring
-            }).done(function(res) { 
-                console.log(res); 
+            }).done(function(response) { 
+
+               console.log(response.petfinder) 
+                for (i = 1; i < 10; i++) {
+                    document.getElementById("images" +i).src = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+                    $(".name" +i).html(response.petfinder.pets.pet[i].name.$t );
+                    $(".age" +i).html("Age: " + response.petfinder.pets.pet[i].age.$t);
+                    $(".city" +i).html("City: " + response.petfinder.pets.pet[i].contact.city.$t);
+                    $(".contact" +i).html("Contact: " + response.petfinder.pets.pet[i].contact.email.$t );
+                    $(".sex" +i).html("Sex: " + response.petfinder.pets.pet[i].sex.$t);
+                    $(".size" +i).html("Size: " + response.petfinder.pets.pet[i].size.$t );
+
+                    var details = document.querySelector('.description' +i);
+                    details.setAttribute('data-balloon', response.petfinder.pets.pet[i].description.$t);
+                };
             });
         }
         
@@ -191,10 +225,15 @@ $(document).ready(function () {
             $.ajax({
                 method: 'get',
                 url: wolfqrstr
-            }).done(function(res) { 
-                console.log(res); 
-                console.log('back in wolfram api call'); 
+            }).done(function(response) { 
+                
+                $('#results').show();
+                // console.log('back in wolfram api call'); 
+                //   console.log(response); 
                 // $('#app').html(res);
+                $(".dogInfo").html("<b>About: </b>" + response.queryresult.pods[4].subpods[0].plaintext + "<br>");
+                $(".dogName").html(response.queryresult.pods[0].subpods[0].plaintext  );
+                $(".dogHistory").html("<b> History: </b>" + response.queryresult.pods[6].subpods[0].plaintext );
         
             });
         }
