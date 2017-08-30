@@ -17,26 +17,16 @@ var apiResultsObj = {};
 // index
 router.get('/', function(req, res) {
     console.log('reached app get in html routes file'); 
-    res.render("index");
-
-    // RENDER INDEX HANDLEBARS FILE
-    // router.get("/", function(req, res) {
-        
-    //     MODEL CALL 
-    //     cat.all(function(data) {
-    //       var hbsObject = {
-    //         cats: data
-    //       };
-    //     console.log(hbsObject);
-    //     });       
-    // });
+    res.render("index", apiResultsObj);
 
 });
+
 
 router.get('/yourmatch', function(req, res) {
     
-    res.render("adoptdog", apiResultsObj);
+    res.render("adoptdog", {breed: apiResultsObj.wolframinfo} );
 });
+
 
 
 router.get("/api/pets", function(req, res) {
@@ -113,15 +103,20 @@ router.get('/wolframapi/:dogbreed', function (req, res) {
         
         // If there were no errors and the response code was 200 (i.e. the request was successful)...
         if (!error && response.statusCode === 200) {
-            console.log(body);
-            res.render('adoptdog'); 
+            // console.log(body);
+            var results = JSON.parse(body);
+            // console.log(results)
+            // extractWolframContent(results);
+            res.json(results);
+            // res.redirect('/yourmatch');
+            // res.render('adoptdog'); 
             // var hbsObject = { 
             //     dog: JSON.parse(body).petfinder.pets.pet,
             // }
             // console.log (hbsObject);
             // res.render("index", hbsObject);
             // redirect('/yourmatch');
-        }
+        } 
     });
 
 });
@@ -145,5 +140,39 @@ var a = {
 var unifyStr = querystring.stringify(a);
 console.log('############');
 console.log(unifyStr);
+
+function extractWolframContent(obj) { 
+    console.log(obj);
+    console.log(obj.queryresult.pods[4].subpods[0].plaintext);
+    console.log(obj.queryresult.pods[5].subpods[0].plaintext);
+    console.log(obj.queryresult.pods[6].subpods[0].plaintext);
+
+    apiResultsObj.wolframinfo = {
+        breedDescription: obj.queryresult.pods[4].subpods[0].plaintext, 
+        breedTemperment: obj.queryresult.pods[5].subpods[0].plaintext,
+        breedCharacteristics: obj.queryresult.pods[6].subpods[0].plaintext,
+        breedHistory: obj.queryresult.pods[6].subpods[0].plaintext
+    } 
+
+    console.log("==============================");
+    console.log("=== adding results in obj check ======");
+    console.log(apiResultsObj.wolframinfo);
+
+// BREED DESCRIPTION (in pod with "title": "Description")
+// .queryresult.pods[4].subpods[0].plaintext
+
+// TEMPERAMENT (in pod with "title": "Temperament")
+// .queryresult.pods[5].subpods[0].plaintext
+
+// DETAILED LIST OF CHARACTERISTIC TRAITS (in pod with "title": "Properties")
+// .queryresult.pods[3].subpods[0].plaintext
+
+// BREED HISTORY (in pod with "title": "History")
+// .queryresult.pods[6].subpods[0].plaintext
+
+// ALTERNATE BREED NAMES (in the pod with "title": "Alternate names" )
+// .queryresult.pods[1].subpods[0].plaintext
+};
+
 
 module.exports = router; 
