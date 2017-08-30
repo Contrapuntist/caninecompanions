@@ -97,8 +97,8 @@ label {
 }
 
 .nav-masthead .active {
-  color: #fff;
-  border-bottom-color: #fff;
+  color: #FFC107;
+  border-bottom-color: #FFC107;
 }
 
 .question {
@@ -137,9 +137,23 @@ label {
  * Footer
  */
 
-.mastfoot {
-  color: rgba(255,255,255,.5);
+.footer {
+  background-color: #000000;
+  color: #ffc107;
+  width: 100%;
+  padding: 40px;
+}
 
+.footer-logo {
+  float: left;
+}
+
+.footer-contact {
+  text-align: right;
+}
+
+.footer-social {
+  float: right;
 }
 
 
