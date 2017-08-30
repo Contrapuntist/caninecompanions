@@ -192,9 +192,23 @@ $(document).ready(function () {
                 method: 'get',  
                 url: queryStr,
                 data: querystring
-            }).done(function(res) { 
-                console.log(res); 
-            });
+            }).done(function(response) { 
+
+        for (i = 1; i < 10; i++) {
+        document.getElementById("images" +i).src = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+        $(".name" +i).html(response.petfinder.pets.pet[i].name.$t );
+        $(".age" +i).html("Age: " + response.petfinder.pets.pet[i].age.$t);
+        $(".city" +i).html("City: " + response.petfinder.pets.pet[i].contact.city.$t);
+        $(".contact" +i).html("Contact: " + response.petfinder.pets.pet[i].contact.email.$t );
+        $(".sex" +i).html("Sex: " + response.petfinder.pets.pet[i].sex.$t);
+        $(".size" +i).html("Size: " + response.petfinder.pets.pet[i].size.$t );
+
+        var details = document.querySelector('.description' +i);
+        details.setAttribute('data-balloon', response.petfinder.pets.pet[i].description.$t);
+
+            };
+        });
         }
         
         // WOLFRAM API 'PROXY' CALL THROUGH SERVER/ROUTING
@@ -204,10 +218,14 @@ $(document).ready(function () {
             $.ajax({
                 method: 'get',
                 url: wolfqrstr
-            }).done(function(res) { 
-                console.log(res); 
+            }).done(function(response) { 
+    
                 console.log('back in wolfram api call'); 
                 // $('#app').html(res);
+                 $(".dogInfo").html("<b>About: </b>" + response.queryresult.pods[4].subpods[0].plaintext + "<br>");
+                  console.log(response); 
+                  $(".dogName").html(response.queryresult.pods[0].subpods[0].plaintext  );
+                  $(".dogHistory").html("<b> History: </b>" + response.queryresult.pods[6].subpods[0].plaintext );
         
             });
         }
