@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $("#results").hide();
+    // $("#results").hide();
 
 
     // jQuery EVENT LISTENERS 
@@ -97,18 +97,20 @@ $(document).ready(function () {
             console.log(inputObj); 
             console.log(inputObj.breedMatch());
             var getBreedUrl = "api/pets/" + inputObj.breedMatch();
-            console.log('url: ' + getBreedUrl);
-            $.ajax({
-                url: "api/pets/" + inputObj.breedMatch(),
-                method: "GET"
-            }).done(function (res) {
-                console.log(res); 
-                var dogbreedvalue = res.breedName;
-                
-                makeQueryStrings(dogbreedvalue, inputObj); 
-                // makePFQueryString(inputObj, dogbreedvalue); 
-                // queryStringWolfram(dogbreedvalue); 
-            }); 
+            console.log('url: ' + getBreedUrl); 
+
+            $.when(getBreedUrl).done(function(val) { 
+            console.log("after when, breed val: " + val);   
+                $.ajax({
+                    url: val,
+                    method: "GET"
+                }).done(function (res) {
+                    console.log(res); 
+                    var dogbreedvalue = res.breedName;                  
+                    makeQueryStrings(dogbreedvalue, inputObj); 
+
+                }); 
+            });
         }
 
         function makeQueryStrings(dogbreed, inputObj) { 
@@ -121,7 +123,7 @@ $(document).ready(function () {
                 console.log(wolfval);
                 console.log('===================');
                 petfindercall(query1);
-                wolframcall(wolfval);
+                // wolframcall(wolfval);
             });
 
         }
