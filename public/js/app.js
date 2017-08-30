@@ -6,71 +6,58 @@ $(document).ready(function () {
         
         console.log("button clicked"); 
 
-        // var frmLastName = $('#lastName-js').val().trim();
-        // console.log(frmLastName);
-        // var frmFirstName = $('#firstName-js').val().trim();
-        // console.log(frmFirstName);
-        // var frmEmail = $('#email-js').val().trim();
-        // console.log(frmEmail);
-        // var frmPassword = $('#password-js').val().trim();
-        // console.log(frmPassword);
-        // var frmZip = $('#zip-js').val().trim();
-        // console.log(frmZip);
-        // var frmDogAge = $('.dogAge-js').val().trim(); 
-        // console.log(frmDogAge);
+        //Need to figure out why value is not being stored for text input fields
+        var frmLastName = $("#lastName-js").val().trim();
+        console.log(frmLastName);
+        var frmFirstName = $("#firstName-js").val().trim();
+        console.log(frmFirstName);
+        var frmEmail = $("#email-js").val().trim();
+        console.log(frmEmail);
+        var frmPassword = $("#password-js").val().trim();
+        console.log(frmPassword);
+        var frmZip = $("#zip-js").val().trim();
+        console.log(frmZip);
+
+        var frmDogSex = $("input[name='dog-sex']:checked").val();
+        console.log(frmDogSex);
+        var frmDogAge = $("input[name='dog-age']:checked").val();
+        console.log(frmDogAge);
         
-        // // data for breed matching
-        // var frmDogSize = $('.dogSize-js').val().trim(); 
-        // console.log(frmDogSize);
-        // var frmDogHome = $('.dogHome-js').val().trim(); 
-        // console.log(frmDogHome);
-        // var frmDogHair = $('.dogHair-js').val().trim(); 
-        // console.log(frmDogHair);
-        // var frmDogEnergy = $('.dogEnergy-js').val().trim(); 
-        // console.log(frmDogEnergy);
+        // data for breed matching
+        var frmDogSize = $("input[name='dog-size']:checked").val(); 
+        console.log(frmDogSize);
+        var frmDogHome = $("input[name='dog-home']:checked").val(); 
+        console.log(frmDogHome);
+        var frmDogHair = $("input[name='dog-hair']:checked").val();
+        console.log(frmDogHair);
+        var frmDogEnergy = $("input[name='dog-energy']:checked").val(); 
+        console.log(frmDogEnergy);
 
 
-        // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
-        // var formInput = {
-        //     lastName: frmLastName,
-        //     firstName: frmFirstName, 
-        //     email: frmEmail,
-        //     password: frmPassword,
-        //     zip: frmZip, 
-        //     dogGender: frmDogGender,
-        //     dogAge: frmDogAge,
-        //     dogSize: frmDogSize, 
-        //     dogHome: frmDogHome,
-        //     dogShed: frmDogShed,
-        //     dogEnergy: frmDogEnergy,
-        // }
-        
-        // console.log("form input: " + formInput); 
-
-        var userInput = {
-            lastName: "Doe", // frmLastName,
-            firstName: "Jane", // frmFirstName, 
-            email: "jdoe1234@gmail.com", // frmEmail,
-            password: '1234567', // frmPassword,
-            zip: "60601", // frmZip 
-            dogSex: "male", // frmDogGender
-            dogAge: "baby", // frmDogAge
-            dogSize: "small", // frmDogSize 
-            dogHome: "home", // frmDogHome
-            dogHair: "light", // frmDogShed
-            dogEnergy: "calm", // frmDogEnergy
-            testbreedmatch: function () {
-               return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy
-            }
+        var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
+        var formInput = {
+            lastName: frmLastName,
+            firstName: frmFirstName, 
+            email: frmEmail,
+            password: frmPassword,
+            zip: frmZip, 
+            dogSex: frmDogSex,
+            dogAge: frmDogAge,
+            dogSize: frmDogSize, 
+            dogHome: frmDogHome,
+            dogHair: frmDogHair,
+            dogEnergy: frmDogEnergy,
         }
+        
+        console.log("form input: " + formInput); 
 
        
-        console.log(userInput.testbreedmatch());
+        console.log(formInput);
 
         // VALUE FOR TESTING BREED MATCH GET REQUEST
         // var testbreedmatch = "smallhomelighthighenergy";
 
-        findBreed(userInput); 
+        findBreed(formInput); 
      
 
         // CREATE NEW USER 
