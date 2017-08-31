@@ -19,7 +19,7 @@ a:hover {
   border: .05rem solid #fff;
 }
 
-* {box-sizing: border-box;}
+/** {box-sizing: border-box;}*/
 /*
  * Base structure
  */
@@ -39,7 +39,7 @@ body {
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 100%; /* For at least Firefox */
+/*  height: 100%;*/ /* For at least Firefox */
   min-height: 100%;
   /*-webkit-box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
   box-shadow: inset 0 0 5rem rgba(0,0,0,.5);*/
@@ -104,7 +104,8 @@ label {
 
 .question {
   color: black;
-  margin-top: 25px;
+  margin-top:25px;
+
 }
 
 .custom-controls-stacked {
@@ -160,6 +161,7 @@ label {
   color: #ffc107;
   width: 100%;
   padding: 40px;
+  margin-top: 40px;
 }
 
 
@@ -192,18 +194,8 @@ label {
 
 
 
-@media (min-width: 768px) {
-  .masthead,
-  .mastfoot,
-  .cover-container {
-    width: 42rem;
-  }
-}
-
-
-
-@media (min-width: 640px) {
-  /* Pull out the header and footer */
+@media (min-width: 40em) {
+/* Pull out the header and footer */
   .masthead {
     position: fixed;
     top: 0;
@@ -213,28 +205,25 @@ label {
     bottom: 0;
   }
   /* Start the vertical centering */
-  .site-wrapper-inner {
+ /* .site-wrapper-inner {
     vertical-align: middle;
-  }
+  }*/
   /* Handle the widths */
   .masthead,
   .mastfoot,
   .cover-container {
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
+}
 
-  .ms_float-0 {float: none;}
-  .ms_float-l {float: left;}
-  .ms_fs-25{font-size: 25px;}
-  .ms_marg-cntr{margin:0 auto;}
-  .ms_marg-0-10{margin:0px 10px;}
-  .ms_marg-b-3pct {margin-bottom: 3%;}
-  .ms_marg-b-5pct{margin-bottom: 5%;}
-  .ms_pad-3pct {padding: 3%;}
-  .ms_pos-static {position: static;}
-  .ms_txtalgn-cntr{text-align: center;}
-  .ms_w-50pct {width: 50%;}
-  .ms_w-80pct {width: 80%;}
-  .ms_w-100pct {width: 100%;}
+
+
+
+@media (min-width: 62em) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 42rem;
+  }
 }
 
