@@ -1,9 +1,20 @@
 
 $(document).ready(function () {
+
+// jQuery EVENT LISTENERS 
+
+    // Hiding results container on load
     $("#results").hide();
+    
+    // Show hide form events
+    $("#hide").click(function(){
+        $("#needs-validation").hide();
+    });
+    $("#show").click(function(){
+        $("#needs-validation").show();
+    });
 
-
-    // jQuery EVENT LISTENERS 
+    // On form submit, the app goes into action
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
         
