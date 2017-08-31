@@ -1,74 +1,85 @@
+
 $(document).ready(function () {
-    
+    $("#results").hide();
+
+
     // jQuery EVENT LISTENERS 
     $("#submitbtn").on("click", function (e) { 
         e.preventDefault(); 
         
         console.log("button clicked"); 
 
-        // var frmLastName = $('#lastName-js').val().trim();
-        // console.log(frmLastName);
-        // var frmFirstName = $('#firstName-js').val().trim();
-        // console.log(frmFirstName);
-        // var frmEmail = $('#email-js').val().trim();
-        // console.log(frmEmail);
-        // var frmPassword = $('#password-js').val().trim();
-        // console.log(frmPassword);
-        // var frmZip = $('#zip-js').val().trim();
-        // console.log(frmZip);
-        // var frmDogAge = $('.dogAge-js').val().trim(); 
-        // console.log(frmDogAge);
+        //Text input fields
+        var frmLastName = $("#lastName-js").val().trim();
+        console.log(frmLastName);
+        var frmFirstName = $("#firstName-js").val().trim();
+        console.log(frmFirstName);
+        var frmEmail = $("#email-js").val().trim();
+        console.log(frmEmail);
+        var frmPassword = $("#password-js").val().trim();
+        console.log(frmPassword);
+        var frmZip = $("#zip-js").val().trim();
+        console.log(frmZip);
+
+        // variable data for calling API
+        var frmDogSex = $("input[name='dog-sex']:checked").val();
+        console.log(frmDogSex);
+        var frmDogAge = $("input[name='dog-age']:checked").val();
+        console.log(frmDogAge);
         
-        // // data for breed matching
-        // var frmDogSize = $('.dogSize-js').val().trim(); 
-        // console.log(frmDogSize);
-        // var frmDogHome = $('.dogHome-js').val().trim(); 
-        // console.log(frmDogHome);
-        // var frmDogHair = $('.dogHair-js').val().trim(); 
-        // console.log(frmDogHair);
-        // var frmDogEnergy = $('.dogEnergy-js').val().trim(); 
-        // console.log(frmDogEnergy);
+        // data for breed matching
+        var frmDogSize = $("input[name='dog-size']:checked").val(); 
+        console.log(frmDogSize);
+        var frmDogHome = $("input[name='dog-home']:checked").val(); 
+        console.log(frmDogHome);
+        var frmDogHair = $("input[name='dog-hair']:checked").val();
+        console.log(frmDogHair);
+        var frmDogEnergy = $("input[name='dog-energy']:checked").val(); 
+        console.log(frmDogEnergy);
 
 
-        // var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
-        // var formInput = {
-        //     lastName: frmLastName,
-        //     firstName: frmFirstName, 
-        //     email: frmEmail,
-        //     password: frmPassword,
-        //     zip: frmZip, 
-        //     dogGender: frmDogGender,
-        //     dogAge: frmDogAge,
-        //     dogSize: frmDogSize, 
-        //     dogHome: frmDogHome,
-        //     dogShed: frmDogShed,
-        //     dogEnergy: frmDogEnergy,
-        // }
-        
-        // console.log("form input: " + formInput); 
-
+        //var breedMatch = frmDogSize + frmDogHome + frmDogHair + frmDogEnergy; 
         var userInput = {
-            lastName: "Doe", // frmLastName,
-            firstName: "Jane", // frmFirstName, 
-            email: "jdoe1234@gmail.com", // frmEmail,
-            password: '1234567', // frmPassword,
-            zip: "60601", // frmZip 
-            dogSex: "male", // frmDogGender
-            dogAge: "baby", // frmDogAge
-            dogSize: "small", // frmDogSize 
-            dogHome: "home", // frmDogHome
-            dogHair: "light", // frmDogShed
-            dogEnergy: "calm", // frmDogEnergy
-            testbreedmatch: function () {
-               return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy
-            }
+            lastName: frmLastName,
+            firstName: frmFirstName, 
+            email: frmEmail,
+            password: frmPassword,
+            zip: frmZip, 
+            dogSex: frmDogSex,
+            dogAge: frmDogAge,
+            dogSize: frmDogSize, 
+            dogHome: frmDogHome,
+            dogHair: frmDogHair,
+            dogEnergy: frmDogEnergy,
+            breedMatch: function () {
+                return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy;
+             }
         }
+        
+        console.log("form input: " + userInput); 
 
        
-        console.log(userInput.testbreedmatch());
+        console.log(userInput);
 
         // VALUE FOR TESTING BREED MATCH GET REQUEST
-        // var testbreedmatch = "smallhomelighthighenergy";
+        // var breedMatch = "smallhomelighthighenergy";
+
+        // var userInput = {		
+        //     lastName: "Doe", // frmLastName,		
+        //     firstName: "Jane", // frmFirstName, 		
+        //     email: "jdoe1234@gmail.com", // frmEmail,		
+        //     password: '1234567', // frmPassword,		
+        //     zip: "60601", // frmZip 		
+        //     dogSex: "male", // frmDogGender		
+        //     dogAge: "baby", // frmDogAge		
+        //     dogSize: "small", // frmDogSize 		
+        //     dogHome: "home", // frmDogHome		
+        //     dogHair: "light", // frmDogShed		
+        //     dogEnergy: "calm", // frmDogEnergy		
+        //     testbreedmatch: function () {		
+        //        return this.dogSize + this.dogHome + this.dogHair + this.dogEnergy		
+        //     }		
+        // }
 
         findBreed(userInput); 
      
@@ -84,20 +95,22 @@ $(document).ready(function () {
         function findBreed (inputObj) { 
             console.log("in find breed");
             console.log(inputObj); 
-            console.log(inputObj.testbreedmatch());
-            var getBreedUrl = "api/pets/" + inputObj.testbreedmatch();
-            console.log('url: ' + getBreedUrl);
-            $.ajax({
-                url: "api/pets/" + inputObj.testbreedmatch(),
-                method: "GET"
-            }).done(function (res) {
-                console.log(res); 
-                var dogbreedvalue = res.breedName;
-                
-                makeQueryStrings(dogbreedvalue, inputObj); 
-                // makePFQueryString(inputObj, dogbreedvalue); 
-                // queryStringWolfram(dogbreedvalue); 
-            }); 
+            console.log(inputObj.breedMatch());
+            var getBreedUrl = "api/pets/" + inputObj.breedMatch();
+            console.log('url: ' + getBreedUrl); 
+
+            $.when(getBreedUrl).done(function(val) { 
+            console.log("after when, breed val: " + val);   
+                $.ajax({
+                    url: val,
+                    method: "GET"
+                }).done(function (res) {
+                    console.log(res); 
+                    var dogbreedvalue = res.breedName;                  
+                    makeQueryStrings(dogbreedvalue, inputObj); 
+
+                }); 
+            });
         }
 
         function makeQueryStrings(dogbreed, inputObj) { 
@@ -192,8 +205,22 @@ $(document).ready(function () {
                 method: 'get',  
                 url: queryStr,
                 data: querystring
-            }).done(function(res) { 
-                console.log(res); 
+            }).done(function(response) { 
+
+               console.log(response.petfinder) 
+                for (i = 1; i < 10; i++) {
+                    document.getElementById("images" +i).src = response.petfinder.pets.pet[i].media.photos.photo[3].$t;
+
+                    $(".name" +i).html(response.petfinder.pets.pet[i].name.$t );
+                    $(".age" +i).html("Age: " + response.petfinder.pets.pet[i].age.$t);
+                    $(".city" +i).html("City: " + response.petfinder.pets.pet[i].contact.city.$t);
+                    $(".contact" +i).html("Contact: " + response.petfinder.pets.pet[i].contact.email.$t );
+                    $(".sex" +i).html("Sex: " + response.petfinder.pets.pet[i].sex.$t);
+                    $(".size" +i).html("Size: " + response.petfinder.pets.pet[i].size.$t );
+
+                    var details = document.querySelector('.description' +i);
+                    details.setAttribute('data-balloon', response.petfinder.pets.pet[i].description.$t);
+                };
             });
         }
         
@@ -204,8 +231,16 @@ $(document).ready(function () {
             $.ajax({
                 method: 'get',
                 url: wolfqrstr
-            }).done(function(res) { 
-                console.log(res); 
+            }).done(function(response) { 
+                
+                // console.log('back in wolfram api call'); 
+                //   console.log(response); 
+                // $('#app').html(res);
+                $(".dogInfo").html("<b>About: </b>" + response.queryresult.pods[4].subpods[0].plaintext + "<br>");
+                $(".dogName").html(response.queryresult.pods[0].subpods[0].plaintext  );
+                $(".dogHistory").html("<b> History: </b>" + response.queryresult.pods[6].subpods[0].plaintext );
+                
+                $('#results').show();
             });
         }
     

@@ -53,6 +53,7 @@ body {
   margin-left: auto;
 }
 
+
 label {
   color: black;
   
@@ -103,7 +104,24 @@ label {
 
 .question {
   color: black;
-  float: left;
+  margin-top: 25px;
+}
+
+.custom-controls-stacked {
+  margin-left: 50px;
+
+}
+
+.bottom {
+  margin-bottom: 25px;
+}
+
+.image {
+  margin-top: 10px;
+}
+
+.custom-control-input:checked~.custom-control-indicator {
+    background-color: #ffc107;
 }
 
 @media (min-width: 48em) {

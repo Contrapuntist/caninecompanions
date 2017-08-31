@@ -17,29 +17,17 @@ var apiResultsObj = {};
 // index
 router.get('/', function(req, res) {
     console.log('reached app get in html routes file'); 
-    res.render("index");
-
-    // RENDER INDEX HANDLEBARS FILE
-    // router.get("/", function(req, res) {
-        
-    //     MODEL CALL 
-    //     cat.all(function(data) {
-    //       var hbsObject = {
-    //         cats: data
-    //       };
-    //     console.log(hbsObject);
-    //     });       
-    // });
+    res.render("index", apiResultsObj);
 
 });
 
+// Should render adoptdog handlebars
 router.get('/yourmatch', function(req, res) {
-    
-    res.render("adoptdog", apiResultsObj);
+    res.render("adoptdog", {breed: apiResultsObj.wolframinfo} );
 });
 
-
-router.get("/api/pets", function(req, res) {
+// gets all breeds
+router.get("/api/breedmatches", function(req, res) {
     var query = {};
     // post is model
     db.Breed.findAll({}).then(function(dbbreeds) {
@@ -67,13 +55,12 @@ router.get('/petfinderapi/', function (req, res) {
         // var secondoption = req.params.apicall;
         console.log('*******************************');
         console.log('petfinder get request info');
-        console.log(res)        
+        // console.log(res)        
         console.log(apiQueryStr);     
         
         // res.send(req.query); 
         // res.redirect('/')
     
-        var queryStr = "http://api.petfinder.com/pet.find?key=e5b1a397d213021b27e64c70bbd8ee34&animal=dog&breed=Beagle&sex=M&age=baby&size=S&location=60601&output=full&format=json" 
         request(apiQueryStr, function(error, response, body) {
             
             // If there were no errors and the response code was 200 (i.e. the request was successful)...
@@ -82,16 +69,17 @@ router.get('/petfinderapi/', function (req, res) {
                 // Then we print out the imdbRating
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].age.$t);
                 console.log("petfinder data: " + JSON.parse(body).petfinder.pets.pet[0].size.$t); 
-                res.json(body); 
-                
-                apiResultsObj.dogs = JSON.parse(body).petfinder.pets.pet
+
+                var results = JSON.parse(body); 
+                console.log(results);
+                res.json(results);
                 
                 // var hbsObject = { 
                 //     dog: JSON.parse(body).petfinder.pets.pet,
                 // }
                 // console.log (hbsObject);
                 // res.render("index", hbsObject);
-            }
+            }        
         });
     
 });
@@ -113,15 +101,14 @@ router.get('/wolframapi/:dogbreed', function (req, res) {
         
         // If there were no errors and the response code was 200 (i.e. the request was successful)...
         if (!error && response.statusCode === 200) {
-            console.log(body);
-            res.render('adoptdog'); 
-            // var hbsObject = { 
-            //     dog: JSON.parse(body).petfinder.pets.pet,
-            // }
-            // console.log (hbsObject);
-            // res.render("index", hbsObject);
-            // redirect('/yourmatch');
-        }
+            // console.log(body);
+            var results = JSON.parse(body);
+            // console.log(results)
+            // extractWolframContent(results);
+            res.json(results);
+            // res.redirect('/yourmatch');
+            // res.render('adoptdog'); 
+        } 
     });
 
 });
@@ -137,13 +124,38 @@ router.post("/api/newuser", function(req, res) {
 
 // testing querystring node module 
 
-var a = { 
-    I: "am",
-    thrilled: "this",
-    is: "working"
-} 
-var unifyStr = querystring.stringify(a);
-console.log('############');
-console.log(unifyStr);
+function extractWolframContent(obj) { 
+    console.log(obj);
+    console.log(obj.queryresult.pods[4].subpods[0].plaintext);
+    console.log(obj.queryresult.pods[5].subpods[0].plaintext);
+    console.log(obj.queryresult.pods[6].subpods[0].plaintext);
+
+    apiResultsObj.wolframinfo = {
+        breedDescription: obj.queryresult.pods[4].subpods[0].plaintext, 
+        breedTemperment: obj.queryresult.pods[5].subpods[0].plaintext,
+        breedCharacteristics: obj.queryresult.pods[6].subpods[0].plaintext,
+        breedHistory: obj.queryresult.pods[6].subpods[0].plaintext
+    } 
+
+    console.log("==============================");
+    console.log("=== adding results in obj check ======");
+    console.log(apiResultsObj.wolframinfo);
+
+// BREED DESCRIPTION (in pod with "title": "Description")
+// .queryresult.pods[4].subpods[0].plaintext
+
+// TEMPERAMENT (in pod with "title": "Temperament")
+// .queryresult.pods[5].subpods[0].plaintext
+
+// DETAILED LIST OF CHARACTERISTIC TRAITS (in pod with "title": "Properties")
+// .queryresult.pods[3].subpods[0].plaintext
+
+// BREED HISTORY (in pod with "title": "History")
+// .queryresult.pods[6].subpods[0].plaintext
+
+// ALTERNATE BREED NAMES (in the pod with "title": "Alternate names" )
+// .queryresult.pods[1].subpods[0].plaintext
+};
+
 
 module.exports = router; 
