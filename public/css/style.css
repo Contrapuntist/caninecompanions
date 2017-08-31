@@ -53,6 +53,7 @@ body {
   margin-left: auto;
 }
 
+
 label {
   color: black;
   
@@ -104,10 +105,12 @@ label {
 .question {
   color: black;
   margin-top:25px;
+
 }
 
 .custom-controls-stacked {
   margin-left: 50px;
+
 }
 
 .bottom {
